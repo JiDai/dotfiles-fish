@@ -19,6 +19,13 @@ set softtabstop=4
 set autoindent
 syntax on           " enable syntax hl
 
+let g:vdebug_options = {
+\   'port': 9001,
+\   'path_maps': {
+\     '/home/meilleursagents/meilleursagents/MALegacy': '/home/jordid/meilleursagents/MALegacy'
+\   }
+\}
+
 " VIM theme
 let g:airline_theme='angr'
 
@@ -40,6 +47,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'crusoexia/vim-monokai'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-vdebug/vdebug'
 
 " Initialize plugin system
 call plug#end()

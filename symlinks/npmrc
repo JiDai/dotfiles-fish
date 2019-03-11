@@ -1,3 +1,6 @@
 save-exact=true
 strict-ssl=true
-registry=https://registry.npmjs.org/
+@ma-js-common:registry=https://packagecloud.io/meilleursagents/ma-prod/npm/
+always-auth=true
+//packagecloud.io/meilleursagents/ma-prod/npm/:_authToken=${PACKAGECLOUD_NPM_PUBLISH_TOKEN}
+init-author-name=Jordi Dosne
