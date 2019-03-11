@@ -27,33 +27,18 @@ main() {
     done
 
 
-    print_title "Cleanup"
-
-    if [[ "${IS_MACOS}" == true ]]; then
-        brew cleanup
-    elif command -v apt-get > /dev/null 2>&1; then
-        sudo apt-get autoremove -y
-        sudo apt-get clean all
-    fi
-
-
-
-    print_title "Install fish plugins"
+    print_title "Configure Fish"
 
     if ! command -v fish > /dev/null 2>&1; then
         echo "fish not found"
         exit 1
     fi
 
-
-    print_title "Configure Fish"
-
-
     if [[ -d "$HOME/opt/omf" ]]; then
         rm -rf "$HOME/opt/omf"
     fi
     curl -L https://get.oh-my.fish > install_omf
-    fish install_omf --noninteractive --path=$HOME/opt/omf --config=$HOME/.config/omf
+    fish install_omf --noninteractive --path=$HOME/opt/omf --config=./config/omf
     rm -f install_omf
 
 
@@ -85,7 +70,8 @@ main() {
 
         # Root folder
         if [[ "$base_folder" == "$file_dir" ]]; then
-            ln -sf "$(realpath ${file})" "$dest/"
+            ln -sf "$(realpath ${file})" "$dest/.$(basename $file)"
+            echo "$file symlinked."
             continue
         fi
 
@@ -100,6 +86,16 @@ main() {
     done
 
 
+    print_title "Cleanup"
+
+    if [[ "${IS_MACOS}" == true ]]; then
+        brew cleanup
+    elif command -v apt-get > /dev/null 2>&1; then
+        sudo apt-get autoremove -y
+        sudo apt-get clean all
+    fi
+
+
     print_title "All done!"
 
     echo "Change your shell with the command:"
@@ -109,6 +105,10 @@ main() {
     echo "Then restart your shell and run in this folder:"
     echo
     echo "$ ./install.fish"
+    echo
+    echo "Install VIM plugins, in vim type :"
+    echo
+    echo ":PlugInstall"
     echo
 }
 

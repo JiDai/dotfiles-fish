@@ -35,7 +35,7 @@ var notWatchedFolders = [
 
 var subscriptions = [
     {
-        active: false,
+        active: true,
         name: 'ma',
         type: 'rsync',      // set the subscription to rsync files from a 'source' folder to 'destination' folder
 
@@ -43,7 +43,7 @@ var subscriptions = [
         source: '/Users/jordid/MAWork/MeilleursAgents/',
 
         // destination to sync, could be local or server location.  Any supported rsync location.
-        destination: 'jordid@dev.meilleursagents.org:meilleursagents/',
+        destination: 'jordid@dev:meilleursagents/',
 
         // Watchman file query expresion: https://facebook.github.io/watchman/docs/file-query.html
         // Default: ['allof', ['type', 'f']]
@@ -65,11 +65,22 @@ var subscriptions = [
         ignoreFolders: notSyncedFolders
     },
     {
-        active: true,
+        active: false,
         name: 'deploy_api_dev',
         type: 'rsync',      // set the subscription to rsync files from a 'source' folder to 'destination' folder
         source: '/Users/jordid/GitHome/deploy-api-dev/',
-        destination: 'jordid@dev.meilleursagents.org:deploy-api-dev/',
+        destination: 'jordid@dev:deploy-api-dev/',
+        watchExpression: ["allof",
+            ['type', 'f'],
+        ].concat(notWatchedFolders),
+        ignoreFolders: notSyncedFolders
+    },
+    {
+        active: true,
+        name: 'dotfiles_fish',
+        type: 'rsync',      // set the subscription to rsync files from a 'source' folder to 'destination' folder
+        source: '/Users/jordid/dotfiles-fish/',
+        destination: 'jordid@dev:dotfiles-fish/',
         watchExpression: ["allof",
             ['type', 'f'],
         ].concat(notWatchedFolders),
@@ -87,7 +98,7 @@ subscriptions.forEach(subscription => {
 })
 
 module.exports = {
-    debug: true,           // changes the output to show debug information, cmd and stdout output
+    debug: process.env.DEBUG || false,           // changes the output to show debug information, cmd and stdout output
     emoji: true,            // if your terminal window can support emojis
     rsyncCmd: 'rsync',      // default: 'rsync' -- override to whatever rsync command is installed or located
     subscriptions: subscriptionsConfig,

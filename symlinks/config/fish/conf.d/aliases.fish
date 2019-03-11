@@ -6,9 +6,8 @@ alias v="vim"
 alias rr="rm -rf"
 
 if type -q $file
-  hub && eval (hub alias -s) # alias git=hub
+  hub; AND eval (hub alias -s) # alias git=hub
 end
-
 
 
 ############################################
@@ -60,6 +59,7 @@ alias rsync="rsync -vh"
 alias npmi="npm install"
 alias npmu="npm uninstall"
 alias npms="npm start"
+alias npmr="npm run"
 
 ############################################
 ### GIT
@@ -170,10 +170,10 @@ alias gp='git push'
 alias gpf='git push --force-with-lease'
 alias gpF='git push --force'
 alias gpa='git push --all'
-alias gpA='git push --all && git push --tags'
+alias gpA='git push --all; AND git push --tags'
 alias gpt='git push --tags'
 alias gpc='git push --set-upstream origin "(git-branch-current 2> /dev/null)"'
-alias gpp='git pull origin "(git-branch-current 2> /dev/null)" && git push origin "(git-branch-current 2> /dev/null)"'
+alias gpp='git pull origin "(git-branch-current 2> /dev/null)"; AND git push origin "(git-branch-current 2> /dev/null)"'
 # Rebase (r)
 alias gr='git rebase'
 alias gra='git rebase --abort'
