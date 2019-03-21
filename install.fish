@@ -8,3 +8,9 @@ omf install bass
 
 # Prompt theme
 omf install clearance
+
+# Install and configure NVM
+omf install https://github.com/FabioAntunes/fish-nvm
+nvm install 10
+nvm use 10
+nvm alias default 10

@@ -1,11 +1,11 @@
+set -x IS_MACOS ""
+set -x IS_LINUX ""
 
-set -gx IS_MACOS 0
-set -gx IS_LINUX 0
 switch (uname -s)
     case "Darwin"
-        set -gx IS_MACOS 1
+        set -x IS_MACOS 1
     case "Linux"
-        set -gx IS_LINUX 1
+        set -x IS_LINUX 1
     case '*'
         echo "Unknown OS"
 end
@@ -18,6 +18,12 @@ else
     set -x MA_REPOSITORY "$MA_FOLDER/meilleursagents"
 end
 
+
+
+############################################
+### ENV
+#
+
 set ANSIBLE_VAULT_PASSWORD_FILE ~/.vagrant_vault_pass.txt
 
 set -x MA_INSTANCE "$USER"
@@ -29,3 +35,25 @@ set -x SSL_ACTIVE "False"
 set -x PGDATABASE "meilleursagents_dev"
 set -x PGUSER "meilleursagents"
 set -x PGHOST "www-db-master.dev-internal.meilleursagents"
+
+
+
+############################################
+### Aliases
+#
+
+alias ma='cd $MA_FOLDER'
+alias www='cd $MA_REPOSITORY/apps/www'
+alias site='cd $MA_REPOSITORY/apps/www/www/frontend/site'
+alias react='cd $MA_REPOSITORY/apps/www/www/frontend/react'
+alias common='cd $MA_REPOSITORY/apps/www/www/frontend/common'
+alias mypro='cd $MA_REPOSITORY/apps/MyPro'
+alias portfolio='cd $MA_REPOSITORY/apps/Portfolio/portfolio/frontend'
+alias jinjacommon='cd $MA_REPOSITORY/apps/JinjaCommon'
+alias tools='cd $MA_REPOSITORY/apps/Tools/tools/frontend'
+alias envdev='cd $MA_REPOSITORY/tools/env-dev'
+
+alias selenium-chrome="open vnc://localhost:secret@localhost:5900"
+
+abbr --add get_expected_responses rsync -rv jordid:~/meilleursagents/apps/www/tests/unit/views/.expected_responses/ $MA_REPOSITORY/apps/www/tests/unit/views/.expected_responses/
+abbr --add tml tmuxp load ~/.tmuxp-ma.yml

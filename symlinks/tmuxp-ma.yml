@@ -1,50 +1,50 @@
 session_name: MA
 windows:
   - window_name: main
-    layout: main-vertical
+    layout: even-horizontal
     panes:
       - shell_command:
-        - status
+        - cd $HOME/meilleursagents_git
       - shell_command:
-        - status
+        - bash
   - window_name: www
-    layout: main-vertical
+    layout: even-horizontal
     shell_command_before:
         - cd $HOME/meilleursagents/apps/www
     panes:
       - www:
       - shell_command:
-        - logs www
+        - malogs www
   - window_name: visibility-map
-    layout: main-vertical
+    layout: even-horizontal
     shell_command_before:
-        - cd $HOME/meilleursagents/apps/FollowUp/followup/frontend/visibility-map
+        - cd $HOME/meilleursagents/apps/Tools/tools/frontend/visibility-map
     panes:
       - www:
       - shell_command:
-        - logs f
+        - malogs tools
   - window_name: mypro
-    layout: main-vertical
+    layout: even-horizontal
     shell_command_before:
         - cd $HOME/meilleursagents/apps/MyPro
     panes:
       - mypro:
       - shell_command:
-        - logs mypro
+        - malogs mypro
   - window_name: myproapi
-    layout: main-vertical
+    layout: even-horizontal
     shell_command_before:
         - cd $HOME/meilleursagents/apps/MyProAPI
     panes:
       - myproapi:
       - shell_command:
-        - logs myproapi
+        - malogs myproapi
   - window_name: mediaapi
-    layout: main-vertical
+    layout: even-horizontal
     shell_command_before:
         - cd $HOME/meilleursagents/apps/MediaAPI
     panes:
       - shell_command:
       - shell_command:
-        - logs mediaapi
+        - malogs mediaapi
 

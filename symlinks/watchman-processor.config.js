@@ -43,7 +43,7 @@ var subscriptions = [
         source: '/Users/jordid/MAWork/MeilleursAgents/',
 
         // destination to sync, could be local or server location.  Any supported rsync location.
-        destination: 'jordid@dev:meilleursagents/',
+        destination: 'jordid@jordid:meilleursagents/',
 
         // Watchman file query expresion: https://facebook.github.io/watchman/docs/file-query.html
         // Default: ['allof', ['type', 'f']]
@@ -69,7 +69,18 @@ var subscriptions = [
         name: 'deploy_api_dev',
         type: 'rsync',      // set the subscription to rsync files from a 'source' folder to 'destination' folder
         source: '/Users/jordid/GitHome/deploy-api-dev/',
-        destination: 'jordid@dev:deploy-api-dev/',
+        destination: 'jordid@jordid:deploy-api-dev/',
+        watchExpression: ["allof",
+            ['type', 'f'],
+        ].concat(notWatchedFolders),
+        ignoreFolders: notSyncedFolders
+    },
+    {
+        active: true,
+        name: 'ma-www',
+        type: 'rsync',      // set the subscription to rsync files from a 'source' folder to 'destination' folder
+        source: '/Users/jordid/GitHome/ma-www/',
+        destination: 'jordid@jordid:node-www/',
         watchExpression: ["allof",
             ['type', 'f'],
         ].concat(notWatchedFolders),
@@ -80,7 +91,7 @@ var subscriptions = [
         name: 'dotfiles_fish',
         type: 'rsync',      // set the subscription to rsync files from a 'source' folder to 'destination' folder
         source: '/Users/jordid/dotfiles-fish/',
-        destination: 'jordid@dev:dotfiles-fish/',
+        destination: 'jordid@jordid:dotfiles-fish/',
         watchExpression: ["allof",
             ['type', 'f'],
         ].concat(notWatchedFolders),
