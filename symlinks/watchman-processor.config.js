@@ -1,68 +1,90 @@
-var path = require('path');
-var child_process = require('child_process');
+/**
+ * Configuration file for watchman-processor (built on top of Watchman to watch and sync files over rsync)
+ * https://www.npmjs.com/package/watchman-processor
+ *
+ * Usage :
+ * - Put this file in your home folder
+ * - Run watchman-processor:
+ * $ watchman-processor
+ *
+ * If you want to see verbosity and active watchman-processor debug mode, add DEBUG env flag
+ * $ DEBUG=1 watchman-processor
+ *
+ * Edit `ignoredFolders` to exclude folders
+ * Edit `subscriptions` list to add a sync folder. On a subscription you can:
+ * - Set a `name`
+ * - Set `active` to true/false to enable/disable sync
+ * - Change `source` and `destination` folder for rsync
+ * - Eventually exclude folders and watch rules
+ */
 
-var notSyncedFolders = [
-    'node_modules',
-    '.git',
-    'VERSION',
-    '.cache',
+
+/**
+ * List all files and folder you dont' want to watch and sync
+ */
+const ignoredFolders = [
+    '*.log',
+    '.eggs/',
+    '.git/',
+    'build/',
+    'dist/',
+
+    // Cache files
     '*.pyc',
-    '__pycache__',
-    '.webassets-cache',
-    'vendors',
-    'MALegacy/vendor',
-    'build',
-    'mypro/static/mypro',
-    'apps/www/www/frontend/site/src/js/flask-routes.js'
-]
+    '.cache/',
+    '.webassets-cache/',
+    '__pycache__/',
 
-var notWatchedFolders = [
-    ['not', ['dirname', '.git']],
-    ['not', ['dirname', '.idea']],
-    ['not', ['match', '**/node_modules/**', 'wholename']],
-    ['not', ['match', '**/apps/vendors/**', 'wholename']],
-    ['not', ['match', '**/MALegacy/vendor/**', 'wholename']],
-    ['not', ['match', '**/.cache/**', 'wholename']],
-    ['not', ['match', '**/.webassets-cache/**', 'wholename']],
-    ['not', ['match', '**/bower_components/**', 'wholename']],
-    ['not', ['match', '**/mypro/static/mypro/**', 'wholename']],
-    //['not', ['match', '**/build/**', 'wholename']],
-    ['not', ['match', 'VERSION']],
-    ['not', ['match', '*.pyc']],
-    ['not', ['match', '__pycache__']],
-    ['not', ['match', 'apps/www/www/frontend/site/src/js/flask-routes.js']],
+    // Vendors
+    'apps/*/vendors/',
+    'node_modules/',
+
+    // Static files
+    'MALegacy/vendor/',
+    'MALegacy/static/css/*.css',
+    'MALegacy/static/css/versions',
+    'MALegacy/static/js/*.js',
+    'MALegacy/static/js/versions',
+    'mypro/static/mypro/',
+
+    // App build version
+    'VERSION',
 ];
 
-var subscriptions = [
+/**
+ * Iterate over a list to generate Watchman ignore rules
+ * @param {String} filesList List of file paths
+ * @returns {[]} Watchman rules
+ * @see Watchman file query expresion: https://facebook.github.io/watchman/docs/file-query.html
+ */
+function getUnwatchExpression(filesList) {
+    return ['allof',
+        ['type', 'f'],
+        ...filesList.map(file => {
+            // is dir ?
+            if (/\/$/.test(file)) {
+                return ['not', ['match', `**/${file}**`, 'wholename']];
+            } else {
+                return ['not', ['match', `**/${file}`, 'wholename']];
+            }
+        }),
+    ];
+}
+
+const subscriptions = [
     {
         active: true,
         name: 'ma',
         type: 'rsync',      // set the subscription to rsync files from a 'source' folder to 'destination' folder
-
         // source folder to sync
         source: '/Users/jordid/MAWork/MeilleursAgents/',
-
         // destination to sync, could be local or server location.  Any supported rsync location.
-        destination: 'jordid@jordid:meilleursagents/',
-
+        destination: '/Users/jordid/MAWork/MeilleursAgents_rsynced/',
         // Watchman file query expresion: https://facebook.github.io/watchman/docs/file-query.html
         // Default: ['allof', ['type', 'f']]
-        watchExpression: ["allof",
-            ['type', 'f'],
-            // ["anyof",
-            //     ["not", ["dirname", "apps/MyPro/mypro/static/mypro"]],
-            //     ["match", "apps/MyPro/mypro/static/mypro/config.js", "wholename"],
-            // ],
-            // ["anyof",
-            //     ["not", ["dirname", "apps/www/www/static/build/estima"]],
-            //     ["match", "apps/www/www/static/build/estima/config.js", "wholename"],
-            // ],
-            ["not", ["match", "apps/*/vendors/**", "wholename"]],
-
-        ].concat(notWatchedFolders),
-
+        watchExpression: getUnwatchExpression(ignoredFolders),
         // relative paths to ignore from watchman and rsync
-        ignoreFolders: notSyncedFolders
+        ignoreFolders: ignoredFolders,
     },
     {
         active: false,
@@ -70,10 +92,9 @@ var subscriptions = [
         type: 'rsync',      // set the subscription to rsync files from a 'source' folder to 'destination' folder
         source: '/Users/jordid/GitHome/deploy-api-dev/',
         destination: 'jordid@jordid:deploy-api-dev/',
-        watchExpression: ["allof",
-            ['type', 'f'],
-        ].concat(notWatchedFolders),
-        ignoreFolders: notSyncedFolders
+        watchExpression: getUnwatchExpression(ignoredFolders),
+        // relative paths to ignore from watchman and rsync
+        ignoreFolders: ignoredFolders,
     },
     {
         active: true,
@@ -81,36 +102,34 @@ var subscriptions = [
         type: 'rsync',      // set the subscription to rsync files from a 'source' folder to 'destination' folder
         source: '/Users/jordid/GitHome/ma-www/',
         destination: 'jordid@jordid:node-www/',
-        watchExpression: ["allof",
-            ['type', 'f'],
-        ].concat(notWatchedFolders),
-        ignoreFolders: notSyncedFolders
+        watchExpression: getUnwatchExpression(ignoredFolders),
+        // relative paths to ignore from watchman and rsync
+        ignoreFolders: ignoredFolders,
     },
     {
-        active: true,
+        active: false,
         name: 'dotfiles_fish',
         type: 'rsync',      // set the subscription to rsync files from a 'source' folder to 'destination' folder
         source: '/Users/jordid/dotfiles-fish/',
         destination: 'jordid@jordid:dotfiles-fish/',
-        watchExpression: ["allof",
-            ['type', 'f'],
-        ].concat(notWatchedFolders),
-        ignoreFolders: notSyncedFolders
+        watchExpression: getUnwatchExpression(ignoredFolders),
+        // relative paths to ignore from watchman and rsync
+        ignoreFolders: ignoredFolders,
     },
-]
+];
 
 const subscriptionsConfig = {};
 
 // Filter active subscriptions
 subscriptions.forEach(subscription => {
     if (subscription.active) {
-        subscriptionsConfig[subscription.name] = subscription
+        subscriptionsConfig[subscription.name] = subscription;
     }
-})
+});
 
 module.exports = {
-    debug: process.env.DEBUG || false,           // changes the output to show debug information, cmd and stdout output
-    emoji: true,            // if your terminal window can support emojis
-    rsyncCmd: 'rsync',      // default: 'rsync' -- override to whatever rsync command is installed or located
+    debug: process.env.DEBUG || false, // changes the output to show debug information, cmd and stdout output
+    emoji: true, // if your terminal window can support emojis
+    rsyncCmd: 'rsync', // default: 'rsync' -- override to whatever rsync command is installed or located
     subscriptions: subscriptionsConfig,
 };
