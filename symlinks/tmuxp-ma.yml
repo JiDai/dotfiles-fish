@@ -23,6 +23,14 @@ windows:
       - www:
       - shell_command:
         - malogs tools
+  - window_name: moderation-bv
+    layout: even-horizontal
+    shell_command_before:
+        - cd $HOME/meilleursagents/apps/Tools/tools/frontend/moderation-bv
+    panes:
+      - www:
+      - shell_command:
+        - malogs tools
   - window_name: mypro
     layout: even-horizontal
     shell_command_before:
@@ -47,4 +55,20 @@ windows:
       - shell_command:
       - shell_command:
         - malogs mediaapi
+  - window_name: SalesforceAPI
+    layout: even-horizontal
+    shell_command_before:
+        - cd $HOME/meilleursagents/apps/SalesforceAPI
+    panes:
+      - shell_command:
+      - shell_command:
+        - malogs SalesforceAPI
+  - window_name: PdfAPI
+    layout: even-horizontal
+    shell_command_before:
+        - cd $HOME/meilleursagents/apps/PdfAPI
+    panes:
+      - shell_command:
+      - shell_command:
+        - malogs PdfAPI
 
