@@ -36,7 +36,7 @@ const ignoredFolders = [
     '__pycache__/',
 
     // Vendors
-    'apps/*/vendors/',
+    'apps/*/.venv/',
     'node_modules/',
 
     // Static files
@@ -46,6 +46,7 @@ const ignoredFolders = [
     'MALegacy/static/js/*.js',
     'MALegacy/static/js/versions',
     'mypro/static/mypro/',
+    'pdfapi/static/css',
 
     // App build version
     'VERSION',
@@ -79,7 +80,7 @@ const subscriptions = [
         // source folder to sync
         source: '/Users/jordid/MAWork/MeilleursAgents/',
         // destination to sync, could be local or server location.  Any supported rsync location.
-        destination: '/Users/jordid/MAWork/MeilleursAgents_rsynced/',
+        destination: 'jordid@jordid:meilleursagents/',
         // Watchman file query expresion: https://facebook.github.io/watchman/docs/file-query.html
         // Default: ['allof', ['type', 'f']]
         watchExpression: getUnwatchExpression(ignoredFolders),
@@ -107,7 +108,7 @@ const subscriptions = [
         ignoreFolders: ignoredFolders,
     },
     {
-        active: false,
+        active: true,
         name: 'dotfiles_fish',
         type: 'rsync',      // set the subscription to rsync files from a 'source' folder to 'destination' folder
         source: '/Users/jordid/dotfiles-fish/',
