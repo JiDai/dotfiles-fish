@@ -22,3 +22,8 @@ set -x LC_IDENTIFICATION "en_US.UTF-8"
 
 set -U fish_color_command green
 set -U fish_color_param normal
+
+
+if test -f "$HOME/.ansible-localrc"
+    bass source $HOME/.ansible-localrc
+end
