@@ -109,6 +109,16 @@ const subscriptions = [
     },
     {
         active: true,
+        name: 'sprint-viewer',
+        type: 'rsync',      // set the subscription to rsync files from a 'source' folder to 'destination' folder
+        source: '/Users/jordid/GitHome/sprint-viewer/',
+        destination: 'jordid@jordid:sprint-viewer/',
+        watchExpression: getUnwatchExpression(ignoredFolders),
+        // relative paths to ignore from watchman and rsync
+        ignoreFolders: ignoredFolders,
+    },
+    {
+        active: true,
         name: 'dotfiles_fish',
         type: 'rsync',      // set the subscription to rsync files from a 'source' folder to 'destination' folder
         source: '/Users/jordid/dotfiles-fish/',
