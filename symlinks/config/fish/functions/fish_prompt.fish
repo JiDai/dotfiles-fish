@@ -1,3 +1,6 @@
+# Base theme: cmorrell
+# Install it with : `omf install cmorrell`
+
 
 set -g pad " "
 
@@ -32,7 +35,7 @@ end
 function show_virtualenv -d "Show active python virtual environments"
   if set -q VIRTUAL_ENV
     set -l venvname (basename "$VIRTUAL_ENV")
-    prompt_segment normal white " ($venvname) "
+    prompt_segment normal white "($venvname)"
   end
 end
 
@@ -41,7 +44,7 @@ function show_user -d "Show user"
   if not contains $USER $default_user; or test -n "$SSH_CLIENT"
     set -l host (hostname -s)
     set -l who (whoami)
-    prompt_segment normal yellow " $who"
+    prompt_segment normal yellow "$who"
 
     # Skip @ bit if hostname == username
     if [ "$USER" != "$HOST" ]
@@ -78,7 +81,7 @@ function show_prompt -d "Shows prompt with cue for current priv"
     echo -n -s " "
   else
     echo -e ''
-    prompt_segment normal white " > "
+    prompt_segment normal white "> "
   end
 
   set_color normal
@@ -87,9 +90,10 @@ end
 ## SHOW PROMPT
 function fish_prompt
   set -g RETVAL $status
+  echo -e ''
   show_status
-  show_virtualenv
   show_user
   show_pwd
+  show_virtualenv
   show_prompt
 end
