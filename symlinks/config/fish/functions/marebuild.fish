@@ -14,7 +14,7 @@ function marebuild --description "[MA] Rebuild all apps or one if specified"
 
         make init-dev
         set condition (make -qp | grep build-assets | wc -l)
-        if test condition >= 1
+        if test condition -gt 1
             make build-assets
         end
 
