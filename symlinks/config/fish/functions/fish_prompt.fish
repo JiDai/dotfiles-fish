@@ -1,6 +1,4 @@
-# Base theme: cmorrell
-# Install it with : `omf install cmorrell`
-
+# Base OMF theme: cmorrell
 
 set -g pad " "
 
