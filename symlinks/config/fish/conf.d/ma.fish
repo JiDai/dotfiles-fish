@@ -36,6 +36,9 @@ set -x PGDATABASE "meilleursagents_dev"
 set -x PGUSER "meilleursagents"
 set -x PGHOST "www-db-master.dev-internal.meilleursagents"
 
+# To make make init-dev work without GIT repo
+set -x VERSION_HASH "dev"
+
 
 
 ############################################
