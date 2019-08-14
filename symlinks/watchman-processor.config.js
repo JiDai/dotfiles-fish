@@ -26,8 +26,9 @@ const ignoredFolders = [
     '*.log',
     '.eggs/',
     '.git/',
-    'build/',
+    '.env',
     'dist/',
+    'build/',
 
     // Cache files
     '*.pyc',

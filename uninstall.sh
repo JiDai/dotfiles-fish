@@ -28,6 +28,9 @@ main() {
         fi
     done
 
+    print_title "Cleaning"
+
+    rm -rf "${HOME}/.python_history"
 
 #    print_title "Uninstalls"
 #

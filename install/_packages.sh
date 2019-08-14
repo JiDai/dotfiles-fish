@@ -60,16 +60,6 @@ main() {
     fi
 
     curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-    export PYENV_ROOT=$HOME/opt/pyenv
-    if [[ -d "$PYENV_ROOT" ]]; then
-        rm -rf $PYENV_ROOT
-    fi
-    curl https://pyenv.run | bash
-    if [[ ! -d "$PYENV_ROOT/plugins/pyenv-virtualenv" ]]; then
-        git clone https://github.com/pyenv/pyenv-virtualenv.git $PYENV_ROOT/plugins/pyenv-virtualenv
-    fi
-
 }
 
 main

@@ -1,33 +1,31 @@
 wtf:
+  # Will fail if not defined:
   colors:
-    # background: gray
-    border:
-      focusable: darkslateblue
-      focused: orange
-      normal: gray
-  refreshInterval: 1
+  refreshInterval: 5
   mods:
     cmdrunner:
-      title: 'App Status'
-      args: ["/Users/jordid/GitHome/ma-status/run.js"]
-      cmd: "node"
       enabled: true
+      type: cmdrunner
+      refreshInterval: 10
+      title: 'Dev Status'
+      cmd: "node"
+      args: ["/Users/jordid/GitHome/ma-status/run.js"]
       position:
         top: 0
         left: 0
-        height: 2
-        width: 1
-      refreshInterval: 5
-    cmdrunner:
-      title: 'Kanban'
-      args: ["JIRA_USERNAME=jdosne@meilleursagents.com", "JIRA_PASSWORD=YyHLWkBoKSDwadegQOAs", "node", "/Users/jordid/GitHome/jira-burndown/index.js", "kanban"]
-      cmd: "env"
-      enabled: true
-      position:
-        top: 0
-        left: 2
         height: 1
         width: 1
-      refreshInterval: 5
+    cmdrunner2:
+      enabled: true
+      type: cmdrunner
+      refreshInterval: 10
+      title: 'Staging status'
+      cmd: 'node'
+      args: ["/Users/jordid/GitHome/ma-status/run.js", 'staging']
+      position:
+        top: 0
+        left: 1
+        height: 1
+        width: 1
 
 
