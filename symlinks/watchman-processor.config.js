@@ -140,6 +140,16 @@ const subscriptions = [
         // relative paths to ignore from watchman and rsync
         ignoreFolders: ignoredFolders,
     },
+    {
+        active: true,
+        name: 'testcase-finder',
+        type: 'rsync',      // set the subscription to rsync files from a 'source' folder to 'destination' folder
+        source: '/Users/jordid/GitHome/testcase-finder/',
+        destination: 'jordid@jordid:testcase-finder/',
+        watchExpression: getUnwatchExpression(ignoredFolders),
+        // relative paths to ignore from watchman and rsync
+        ignoreFolders: ignoredFolders,
+    },
 ];
 
 const subscriptionsConfig = {};
