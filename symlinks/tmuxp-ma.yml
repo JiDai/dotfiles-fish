@@ -87,4 +87,12 @@ windows:
       - shell_command:
       - shell_command:
           - docker logs ma-legacy --tail 50 -f
+  - window_name: testcase-finder
+    layout: even-horizontal
+    shell_command_before:
+      - cd $HOME/testcase-finder
+    panes:
+      - shell_command:
+      - shell_command:
+          - npm run start
 
