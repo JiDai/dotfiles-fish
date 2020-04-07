@@ -20,6 +20,13 @@ abbr cd. 'cd (readlink -f .)'
 
 
 ############################################
+### logs
+#
+
+abbr slog "sudo tail -f -n 20 /var/log/syslog"
+abbr jlog "sudo journalctl -f -n 20"
+
+############################################
 ### docker
 #
 
