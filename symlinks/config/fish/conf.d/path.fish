@@ -1,3 +1,5 @@
+set -gx PATH /usr/local/bin $PATH
+
 # Brew
 if test -d $HOME/homebrew
     set -gx PATH $HOME/homebrew/sbin $HOME/homebrew/bin $PATH
@@ -17,3 +19,6 @@ bass source '$HOME/opt/google-cloud-sdk/path.bash.inc'
 
 # The next line enables shell command completion for gcloud.
 bass source '$HOME/opt/google-cloud-sdk/completion.bash.inc'
+
+# CLI PostGres
+set -gx PATH /Applications/Postgres.app/Contents/Versions/latest/bin $PATH
