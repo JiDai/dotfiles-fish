@@ -94,5 +94,5 @@ windows:
     panes:
       - shell_command:
       - shell_command:
-          - npm run start
+          - env PORT=3334 npm run start
 
