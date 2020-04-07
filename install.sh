@@ -72,6 +72,11 @@ prerequisites() {
         sudo apt-key add - < Release.key
         sudo apt-get update
         sudo apt-get install -y -qq fish
+        # There is actually a conflit with the install of rg with fish
+        # https://github.com/BurntSushi/ripgrep/issues/1485
+        # Workaround after a failed install
+        # $ sudo dpkg-divert --add --divert /usr/share/fish/completions/rg.fish.0 --rename --package ripgrep /usr/share/fish/completions/rg.fish
+        # $ apt --fix-broken install
 
         # Pyenv
         curl https://pyenv.run | bash
