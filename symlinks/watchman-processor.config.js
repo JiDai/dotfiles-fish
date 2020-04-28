@@ -77,13 +77,13 @@ function getUnwatchExpression(filesList) {
 const subscriptions = [
     {
         active: true,
-        name: 'ma',
-        type: 'rsync',      // set the subscription to rsync files from a 'source' folder to 'destination' folder
+        name: "ma",
+        type: "rsync", // set the subscription to rsync files from a 'source' folder to 'destination' folder
         // source folder to sync:q
         //
-        source: '/Users/jordid/MAWork/MeilleursAgents/',
+        source: "/Users/jordid/MAWork/MeilleursAgents/",
         // destination to sync, could be local or server location.  Any supported rsync location.
-        destination: 'jordid@jordid:meilleursagents/',
+        destination: "jordid@jordid:meilleursagents/",
         // Watchman file query expresion: https://facebook.github.io/watchman/docs/file-query.html
         // Default: ['allof', ['type', 'f']]
         watchExpression: getUnwatchExpression(ignoredFolders),
@@ -91,61 +91,71 @@ const subscriptions = [
         ignoreFolders: ignoredFolders,
     },
     {
-        active: true,
-        name: 'ma-apiclients',
-        type: 'rsync',      // set the subscription to rsync files from a 'source' folder to 'destination' folder
-        source: '/Users/jordid/MAWork/MA-ApiClients/',
-        destination: 'jordid@jordid:MA-ApiClients/',
+        active: false,
+        name: "ma-apiclients",
+        type: "rsync", // set the subscription to rsync files from a 'source' folder to 'destination' folder
+        source: "/Users/jordid/MAWork/MA-ApiClients/",
+        destination: "jordid@jordid:MA-ApiClients/",
         watchExpression: getUnwatchExpression(ignoredFolders),
         // relative paths to ignore from watchman and rsync
         ignoreFolders: ignoredFolders,
     },
     {
         active: false,
-        name: 'deploy_api_dev',
-        type: 'rsync',      // set the subscription to rsync files from a 'source' folder to 'destination' folder
-        source: '/Users/jordid/GitHome/deploy-api-dev/',
-        destination: 'jordid@jordid:deploy-api-dev/',
+        name: "ma-www",
+        type: "rsync", // set the subscription to rsync files from a 'source' folder to 'destination' folder
+        source: "/Users/jordid/GitHome/ma-www/",
+        destination: "jordid@jordid:node-www/",
+        watchExpression: getUnwatchExpression(ignoredFolders),
+        // relative paths to ignore from watchman and rsync
+        ignoreFolders: ignoredFolders,
+    },
+    {
+        active: false,
+        name: "sprint-viewer",
+        type: "rsync", // set the subscription to rsync files from a 'source' folder to 'destination' folder
+        source: "/Users/jordid/GitHome/sprint-viewer/",
+        destination: "jordid@jordid:sprint-viewer/",
         watchExpression: getUnwatchExpression(ignoredFolders),
         // relative paths to ignore from watchman and rsync
         ignoreFolders: ignoredFolders,
     },
     {
         active: true,
-        name: 'ma-www',
-        type: 'rsync',      // set the subscription to rsync files from a 'source' folder to 'destination' folder
-        source: '/Users/jordid/GitHome/ma-www/',
-        destination: 'jordid@jordid:node-www/',
+        name: "dotfiles_fish",
+        type: "rsync", // set the subscription to rsync files from a 'source' folder to 'destination' folder
+        source: "/Users/jordid/dotfiles-fish/",
+        destination: "jordid@jordid:dotfiles-fish/",
+        watchExpression: getUnwatchExpression(ignoredFolders),
+        // relative paths to ignore from watchman and rsync
+        ignoreFolders: ignoredFolders,
+    },
+    {
+        active: false,
+        name: "jinja-common",
+        type: "rsync", // set the subscription to rsync files from a 'source' folder to 'destination' folder
+        source: "/Users/jordid/MAWork/JinjaCommon/",
+        destination: "jordid@jordid:JinjaCommon/",
         watchExpression: getUnwatchExpression(ignoredFolders),
         // relative paths to ignore from watchman and rsync
         ignoreFolders: ignoredFolders,
     },
     {
         active: true,
-        name: 'sprint-viewer',
-        type: 'rsync',      // set the subscription to rsync files from a 'source' folder to 'destination' folder
-        source: '/Users/jordid/GitHome/sprint-viewer/',
-        destination: 'jordid@jordid:sprint-viewer/',
+        name: "testcase-finder",
+        type: "rsync", // set the subscription to rsync files from a 'source' folder to 'destination' folder
+        source: "/Users/jordid/GitHome/testcase-finder/",
+        destination: "jordid@jordid:testcase-finder/",
         watchExpression: getUnwatchExpression(ignoredFolders),
         // relative paths to ignore from watchman and rsync
         ignoreFolders: ignoredFolders,
     },
     {
         active: true,
-        name: 'dotfiles_fish',
-        type: 'rsync',      // set the subscription to rsync files from a 'source' folder to 'destination' folder
-        source: '/Users/jordid/dotfiles-fish/',
-        destination: 'jordid@jordid:dotfiles-fish/',
-        watchExpression: getUnwatchExpression(ignoredFolders),
-        // relative paths to ignore from watchman and rsync
-        ignoreFolders: ignoredFolders,
-    },
-    {
-        active: true,
-        name: 'testcase-finder',
-        type: 'rsync',      // set the subscription to rsync files from a 'source' folder to 'destination' folder
-        source: '/Users/jordid/GitHome/testcase-finder/',
-        destination: 'jordid@jordid:testcase-finder/',
+        name: "gifmeme",
+        type: "rsync", // set the subscription to rsync files from a 'source' folder to 'destination' folder
+        source: "/Users/jordid/GitHome/gifmeme/",
+        destination: "sw:gifmeme/",
         watchExpression: getUnwatchExpression(ignoredFolders),
         // relative paths to ignore from watchman and rsync
         ignoreFolders: ignoredFolders,
