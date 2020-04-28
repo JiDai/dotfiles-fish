@@ -9,13 +9,15 @@ function marebuild --description "[MA] Rebuild all apps or one if specified"
     for i in $apps
         set app_name (ls "$MA_REPOSITORY/apps/" | grep -i "$i" | head -1)
         set app_name_lower (echo $app_name | tr '[:upper:]' '[:lower:]')
-        echo "Rebuilding $app_name..."
 
         pushd "$MA_REPOSITORY/apps/$app_name"
 
+        echo "Rebuilding $app_name backend..."
         make init-dev
+
         set condition (make -qp | grep build-assets | wc -l)
-        if test condition -gt 1
+        if test $condition -gt 1
+            echo "Rebuilding $app_name assets..."
             make build-assets
         end
 
