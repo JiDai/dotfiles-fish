@@ -33,9 +33,9 @@ set -x SSL_DISABLED "True"
 set -x SSL_ACTIVE "False"
 set -x WEBPACK_NO_ESLINT 1
 
-set -x PGDATABASE "meilleursagents_dev"
-set -x PGUSER "meilleursagents"
-set -x PGHOST "www-db-master.dev-internal.meilleursagents"
+# set -x PGDATABASE "meilleursagents_dev"
+# set -x PGUSER "meilleursagents"
+# set -x PGHOST "www-db-master.dev-internal.meilleursagents"
 
 # To make make init-dev work without GIT repo
 set -x VERSION_HASH "dev"
