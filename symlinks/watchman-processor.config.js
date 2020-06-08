@@ -91,6 +91,21 @@ const subscriptions = [
         ignoreFolders: ignoredFolders,
     },
     {
+        active: true,
+        name: "ma ssr",
+        type: "rsync", // set the subscription to rsync files from a 'source' folder to 'destination' folder
+        // source folder to sync:q
+        //make
+        source: "/Users/jordid/MAWork/MeilleursAgents/",
+        // destination to sync, could be local or server location.  Any supported rsync location.
+        destination: "ssr@ssr:meilleursagents/",
+        // Watchman file query expresion: https://facebook.github.io/watchman/docs/file-query.html
+        // Default: ['allof', ['type', 'f']]
+        watchExpression: getUnwatchExpression(ignoredFolders),
+        // relative paths to ignore from watchman and rsync
+        ignoreFolders: ignoredFolders,
+    },
+    {
         active: false,
         name: "ma-apiclients",
         type: "rsync", // set the subscription to rsync files from a 'source' folder to 'destination' folder
@@ -106,6 +121,26 @@ const subscriptions = [
         type: "rsync", // set the subscription to rsync files from a 'source' folder to 'destination' folder
         source: "/Users/jordid/GitHome/ma-www/",
         destination: "jordid@jordid:node-www/",
+        watchExpression: getUnwatchExpression(ignoredFolders),
+        // relative paths to ignore from watchman and rsync
+        ignoreFolders: ignoredFolders,
+    },
+    {
+        active: true,
+        name: "ma-www ssr",
+        type: "rsync", // set the subscription to rsync files from a 'source' folder to 'destination' folder
+        source: "/Users/jordid/GitHome/ma-www/",
+        destination: "ssr@ssr:ma-www/",
+        watchExpression: getUnwatchExpression(ignoredFolders),
+        // relative paths to ignore from watchman and rsync
+        ignoreFolders: ignoredFolders,
+    },
+    {
+        active: true,
+        name: "ma-www jsons",
+        type: "rsync", // set the subscription to rsync files from a 'source' folder to 'destination' folder
+        source: "/Users/jordid/GitHome/ma-www-jsons/",
+        destination: "ssr@ssr:ma-www-jsons/",
         watchExpression: getUnwatchExpression(ignoredFolders),
         // relative paths to ignore from watchman and rsync
         ignoreFolders: ignoredFolders,
