@@ -8,9 +8,9 @@ function main
     omf install https://github.com/FabioAntunes/fish-nvm
 
     echo "Install and use Node 12"
-    nvm install 12
-    nvm alias default 12
-    nvm use --delete-prefix v12
+    nvm install lts/erbium
+    nvm alias default lts/erbium
+    nvm use --delete-prefix lts/erbium
 
     echo "Install NPM global packages"
     npm i -g npm-check
