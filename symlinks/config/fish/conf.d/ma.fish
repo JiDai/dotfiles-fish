@@ -57,6 +57,9 @@ alias jinjacommon='cd $MA_REPOSITORY/apps/JinjaCommon'
 alias tools='cd $MA_REPOSITORY/apps/Tools/tools/frontend'
 alias envdev='cd $MA_REPOSITORY/tools/env-dev'
 
+alias jk_e2e_all='/Users/jordid/MAWork/JenkinsAPI/.venv/bin/python /Users/jordid/MAWork/JenkinsAPI/e2e_local_all.py'
+alias jk_e2e='/Users/jordid/MAWork/JenkinsAPI/.venv/bin/python /Users/jordid/MAWork/JenkinsAPI/e2e_local.py'
+
 alias selenium-chrome="open vnc://localhost:secret@localhost:5900"
 
 abbr --add get_expected_responses rsync -rv jordid:~/meilleursagents/apps/www/tests/unit/views/.expected_responses/ $MA_REPOSITORY/apps/www/tests/unit/views/.expected_responses/
