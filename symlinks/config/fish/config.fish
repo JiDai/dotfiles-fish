@@ -25,7 +25,7 @@ if test -f "$HOME/.localrc"
 end
 
 if test -f "$HOME/.ansible-localrc"
-    source $HOME/.ansible-localrc
+    bass source $HOME/.ansible-localrc
 end
 
 if test -d "$HOME/.pyenv"
