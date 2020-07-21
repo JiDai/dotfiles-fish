@@ -91,7 +91,7 @@ const subscriptions = [
         ignoreFolders: ignoredFolders,
     },
     {
-        active: true,
+        active: false,
         name: "ma ssr",
         type: "rsync", // set the subscription to rsync files from a 'source' folder to 'destination' folder
         // source folder to sync:q
@@ -126,7 +126,7 @@ const subscriptions = [
         ignoreFolders: ignoredFolders,
     },
     {
-        active: true,
+        active: false,
         name: "ma-www ssr",
         type: "rsync", // set the subscription to rsync files from a 'source' folder to 'destination' folder
         source: "/Users/jordid/GitHome/ma-www/",
@@ -136,7 +136,7 @@ const subscriptions = [
         ignoreFolders: ignoredFolders,
     },
     {
-        active: true,
+        active: false,
         name: "ma-www jsons",
         type: "rsync", // set the subscription to rsync files from a 'source' folder to 'destination' folder
         source: "/Users/jordid/GitHome/ma-www-jsons/",
