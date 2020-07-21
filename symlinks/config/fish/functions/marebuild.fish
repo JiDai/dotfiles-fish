@@ -1,5 +1,5 @@
 function marebuild --description "[MA] Rebuild all apps or one if specified"
-    set apps 'Barometre' 'ConnectAPI' 'GeoAPI' 'IndiceAPI' 'luigi' 'MailAPI' 'MarketAPI' 'MediaAPI' 'MyPro' 'MyProAPI' 'Partners' 'PdfAPI' 'ProfileAPI' 'SalesforceAPI' 'ThirdPartiesAPI' 'Thumbor' 'Tools' 'Wa' 'www'
+    set apps $MA_APPS
 
     if test -n "$argv[1]"
         set apps $argv[1]
