@@ -79,6 +79,17 @@ set -x WEBPACK_NO_ESLINT 1
 set -x VERSION_HASH "dev"
 
 
+# Source ansible local rc manually because file does not contains `export` keyword
+set -l ansible_local_rc_file "$HOME/.ansible-localrc"
+if test -r $ansible_local_rc_file
+    while read -l line
+        if string match --quiet -r '^#' $line
+            continue
+        end
+        set -l keyvalue (string split -m 1 = -- $line)
+        set -gx $keyvalue # this will set the variable named by $kv[1] to the rest of $kv
+    end < $ansible_local_rc_file
+end
 
 ############################################
 ### Aliases
