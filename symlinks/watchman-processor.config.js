@@ -40,6 +40,18 @@ const ignoredFolders = [
     'apps/*/.venv/',
     'node_modules/',
 
+    // Symlinks APPS
+    'apps/Past-Sales-Report',
+    'apps/UserAPI',
+    'apps/LeadAPI',
+    'apps/MyAccount',
+    'apps/MyAccountAPI',
+    'apps/ConnectAPI',
+    'apps/GeoAPI',
+    'apps/MarketAPI',
+    'apps/IndiceAPI',
+    'apps/TopOfTheListAPI',
+
     // Static files
     'MALegacy/vendor/',
     'MALegacy/static/css/*.css',
