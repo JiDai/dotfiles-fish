@@ -24,10 +24,6 @@ if test -f "$HOME/.localrc"
     source $HOME/.localrc
 end
 
-if test -f "$HOME/.ansible-localrc"
-    bass source $HOME/.ansible-localrc
-end
-
 if test -d "$HOME/.pyenv"
     set -x PYENV_ROOT $HOME/.pyenv
     set -x PATH $PYENV_ROOT/bin $PATH
