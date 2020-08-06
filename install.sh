@@ -77,9 +77,6 @@ prerequisites() {
         # Workaround after a failed install
         # $ sudo dpkg-divert --add --divert /usr/share/fish/completions/rg.fish.0 --rename --package ripgrep /usr/share/fish/completions/rg.fish
         # $ apt --fix-broken install
-
-        # Pyenv
-        curl https://pyenv.run | bash
     fi
 }
 
