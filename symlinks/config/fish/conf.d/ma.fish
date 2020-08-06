@@ -91,6 +91,13 @@ if test -r $ansible_local_rc_file
     end < $ansible_local_rc_file
 end
 
+if test -d "$HOME/opt/pyenv"
+    set -x PYENV_ROOT $HOME/opt/pyenv
+    set -x PATH $PYENV_ROOT/bin $PATH
+    status --is-interactive; and source (pyenv init - | psub)
+end
+
+
 ############################################
 ### Aliases
 #
