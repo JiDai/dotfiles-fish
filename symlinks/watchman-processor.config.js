@@ -23,47 +23,52 @@
  * List all files and folder you dont' want to watch and sync
  */
 const ignoredFolders = [
-    '*.log',
-    '.eggs/',
-    '.git/',
-    '.env',
-    'dist/',
-    'build/',
+    "*.log",
+    ".eggs/",
+    ".git/",
+    ".env",
+    "dist/",
+    "build/",
 
     // Cache files
-    '*.pyc',
-    '.cache/',
-    '.webassets-cache/',
-    '__pycache__/',
+    "*.pyc",
+    ".cache/",
+    ".webassets-cache/",
+    "__pycache__/",
 
     // Vendors
-    'apps/*/.venv/',
-    'node_modules/',
+    "apps/*/.venv/",
+    "node_modules/",
 
     // Symlinks APPS
-    'apps/Past-Sales-Report',
-    'apps/UserAPI',
-    'apps/LeadAPI',
-    'apps/MyAccount',
-    'apps/MyAccountAPI',
-    'apps/ConnectAPI',
-    'apps/GeoAPI',
-    'apps/MarketAPI',
-    'apps/IndiceAPI',
-    'apps/TopOfTheListAPI',
+    "apps/ConnectAPI",
+    "apps/Past-Sales-Report",
+    "apps/UserAPI",
+    "apps/LeadAPI",
+    "apps/MyAccount",
+    "apps/MyAccountAPI",
+    "apps/IndiceAPI",
+    "apps/MarketAPI",
+    "apps/GeoAPI",
+    "apps/DvfAPI",
+    "apps/TopOfTheListAPI",
+    "apps/TopOfTheList",
+    "apps/CookieBanner",
+    "apps/VectorTileAPI",
+    "apps/Webanalytics",
 
     // Static files
-    'MALegacy/vendor/',
-    'MALegacy/static/css/*.css',
-    'MALegacy/static/css/versions',
-    'MALegacy/config/config.jordid.inc',
-    'MALegacy/static/js/*.js',
-    'MALegacy/static/js/versions',
-    'mypro/static/mypro/',
-    'pdfapi/static/css',
+    "MALegacy/vendor/",
+    "MALegacy/static/css/*.css",
+    "MALegacy/static/css/versions",
+    "MALegacy/config/config.jordid.inc",
+    "MALegacy/static/js/*.js",
+    "MALegacy/static/js/versions",
+    "mypro/static/mypro/",
+    "pdfapi/static/css",
 
     // App build version
-    'VERSION',
+    "VERSION",
 ];
 
 /**
