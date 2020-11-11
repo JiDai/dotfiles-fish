@@ -45,6 +45,7 @@ const ignoredFolders = [
     "apps/Past-Sales-Report",
     "apps/UserAPI",
     "apps/LeadAPI",
+    "apps/MyPro",
     "apps/MyAccount",
     "apps/MyAccountAPI",
     "apps/IndiceAPI",
@@ -101,6 +102,21 @@ const subscriptions = [
         source: "/Users/jordid/MAWork/MeilleursAgents/",
         // destination to sync, could be local or server location.  Any supported rsync location.
         destination: "jordid@jordid:meilleursagents/",
+        // Watchman file query expresion: https://facebook.github.io/watchman/docs/file-query.html
+        // Default: ['allof', ['type', 'f']]
+        watchExpression: getUnwatchExpression(ignoredFolders),
+        // relative paths to ignore from watchman and rsync
+        ignoreFolders: ignoredFolders,
+    },
+    {
+        active: true,
+        name: "mypro",
+        type: "rsync", // set the subscription to rsync files from a 'source' folder to 'destination' folder
+        // source folder to sync:q
+        //
+        source: "/Users/jordid/MAWork/MyPro/",
+        // destination to sync, could be local or server location.  Any supported rsync location.
+        destination: "jordid@jordid:MyPro/",
         // Watchman file query expresion: https://facebook.github.io/watchman/docs/file-query.html
         // Default: ['allof', ['type', 'f']]
         watchExpression: getUnwatchExpression(ignoredFolders),
