@@ -4,9 +4,10 @@ windows:
     layout: even-horizontal
     panes:
       - shell_command:
-          - cd $HOME/meilleursagents_git
+          - bash
       - shell_command:
           - bash
+
   - window_name: www
     layout: even-horizontal
     shell_command_before:
@@ -15,22 +16,7 @@ windows:
       - www:
       - shell_command:
           - malogs www
-  - window_name: visibility-map
-    layout: even-horizontal
-    shell_command_before:
-      - cd $HOME/meilleursagents/apps/Tools/tools/frontend/visibility-map
-    panes:
-      - www:
-      - shell_command:
-          - malogs Tools
-  - window_name: moderation-bv
-    layout: even-horizontal
-    shell_command_before:
-      - cd $HOME/meilleursagents/apps/Tools/tools/frontend/moderation-bv
-    panes:
-      - www:
-      - shell_command:
-          - malogs Tools
+
   - window_name: MyPro
     layout: even-horizontal
     shell_command_before:
@@ -38,47 +24,8 @@ windows:
     panes:
       - mypro:
       - shell_command:
-          - malogs MyPro
-  - window_name: MyProAPI
-    layout: even-horizontal
-    shell_command_before:
-      - cd $HOME/meilleursagents/apps/MyProAPI
-    panes:
-      - myproapi:
-      - shell_command:
-          - malogs MyProAPI
-  - window_name: ConnectAPI
-    layout: even-horizontal
-    shell_command_before:
-      - cd $HOME/ConnectAPI
-    panes:
-      - connectapi:
-      - shell_command:
-          - malogs ConnectAPI
-  - window_name: GeoAPI
-    layout: even-horizontal
-    shell_command_before:
-      - cd $HOME/meilleursagents/apps/GeoAPI
-    panes:
-      - shell_command:
-      - shell_command:
-          - malogs GeoAPI
-  - window_name: MediaAPI
-    layout: even-horizontal
-    shell_command_before:
-      - cd $HOME/meilleursagents/apps/MediaAPI
-    panes:
-      - shell_command:
-      - shell_command:
-          - malogs MediaAPI
-  - window_name: PdfAPI
-    layout: even-horizontal
-    shell_command_before:
-      - cd $HOME/meilleursagents/apps/PdfAPI
-    panes:
-      - shell_command:
-      - shell_command:
-          - malogs PdfAPI
+          - malogs mypro
+
   - window_name: MALegacy
     layout: even-horizontal
     shell_command_before:
@@ -87,6 +34,41 @@ windows:
       - shell_command:
       - shell_command:
           - docker logs ma-legacy --tail 50 -f
+
+  - window_name: MyPro Api Logs
+    layout: tiled
+    panes:
+      - shell_command:
+          - malogs myproapi
+      - shell_command:
+          - malogs pdfapi
+      - shell_command:
+          - malogs dvfapi
+      - shell_command:
+          - malogs connectapi
+
+  - window_name: WWW Api Logs
+    layout: tiled
+    panes:
+      - shell_command:
+          - malogs geoapi
+      - shell_command:
+          - malogs marketapi
+      - shell_command:
+          - malogs indiceapi
+      - shell_command:
+          - malogs mediaapi
+
+  - window_name: Celeries
+    layout: tiled
+    panes:
+      - shell_command:
+          - cd ~/meilleursagents/apps/www; and make run-celery
+      - shell_command:
+          - cd ~/meilleursagents/apps/MediaAPI; and make run-celery
+      - shell_command:
+          - cd ~/meilleursagents/apps/MyProAPI; and make run-celery
+
   - window_name: testcase-finder
     layout: even-horizontal
     shell_command_before:
