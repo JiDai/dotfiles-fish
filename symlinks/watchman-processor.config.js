@@ -53,7 +53,7 @@ const ignoredFolders = [
     "apps/GeoAPI",
     "apps/DvfAPI",
     "apps/TopOfTheListAPI",
-    "apps/TopOfTheList",
+    "apps/SellerDisplayAds",
     "apps/CookieBanner",
     "apps/VectorTileAPI",
     "apps/Webanalytics",
