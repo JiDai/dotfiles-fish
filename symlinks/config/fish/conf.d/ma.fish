@@ -76,7 +76,9 @@ if test -r $ansible_local_rc_file
             continue
         end
         set -l keyvalue (string split -m 1 = -- $line)
-        set -gx $keyvalue # this will set the variable named by $kv[1] to the rest of $kv
+        if test -n "$keyvalue"
+            set -gx $keyvalue # this will set the variable named by $kv[1] to the rest of $kv
+        end
     end < $ansible_local_rc_file
 end
 
