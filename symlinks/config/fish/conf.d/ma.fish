@@ -1,3 +1,7 @@
+
+# need to have $PATH updated
+source (dirname (status --current-filename))"/path.fish"
+
 set -x IS_MACOS ""
 set -x IS_LINUX ""
 
@@ -18,26 +22,11 @@ else
     set -x MA_REPOSITORY "$MA_FOLDER/meilleursagents"
 end
 
-set -x MA_APPS \
-'Barometre' 'barometre' "$MA_REPOSITORY/apps/Barometre" \
-'ConnectAPI' 'connectapi' "$MA_REPOSITORY/apps/ConnectAPI" \
-'GeoAPI' 'geoapi' "$MA_REPOSITORY/apps/GeoAPI" \
-'IndiceAPI' 'indiceapi' "$MA_REPOSITORY/apps/IndiceAPI" \
-'luigi' 'luigi' "$MA_REPOSITORY/apps/luigi" \
-'MailAPI' 'mailapi' "$MA_REPOSITORY/apps/MailAPI" \
-'MarketAPI' 'marketapi' "$MA_REPOSITORY/apps/MarketAPI" \
-'MediaAPI' 'mediaapi' "$MA_REPOSITORY/apps/MediaAPI" \
-'MyPro' 'mypro' "$MA_REPOSITORY/apps/MyPro" \
-'MyProAPI' 'myproapi' "$MA_REPOSITORY/apps/MyProAPI" \
-'Partners' 'partners' "$MA_REPOSITORY/apps/Partners" \
-'PdfAPI' 'pdfapi' "$MA_REPOSITORY/apps/PdfAPI" \
-'ProfileAPI' 'profileapi' "$MA_REPOSITORY/apps/ProfileAPI" \
-'SalesforceAPI' 'salesforceapi' "$MA_REPOSITORY/apps/SalesforceAPI" \
-'ThirdPartiesAPI' 'thirdpartiesapi' "$MA_REPOSITORY/apps/ThirdPartiesAPI" \
-'Thumbor' 'thumbor' "$MA_REPOSITORY/apps/Thumbor" \
-'Tools' 'tools' "$MA_REPOSITORY/apps/Tools" \
-'Wa' 'wa' "$MA_REPOSITORY/apps/Wa" \
-'www' 'www' "$MA_REPOSITORY/apps/www"
+set -x MA_APPS (env SCHEME="http" \
+        SSL_DISABLED="True" \
+        INSTANCE_NAME="$MA_INSTANCE" \
+        DOMAIN_NAME="meilleursagents.tech" \
+        envsubst < "$HOME/.config/ma-apps.conf")
 
 set -x MA_APPS_NAMES
 set -x MA_APPS_SERVICES
