@@ -22,29 +22,29 @@ prerequisites() {
         brew upgrade
         # Installed packages must be also declared in uninstall.sh
         brew install \
-          htop \
           curl \
-          ncdu \
-          git \
-          fswatch \
-          openssl \
-          python \
-          tree \
-          hub \
-          httpie \
-          mosh \
-          watch \
           fish \
-          pgcli \
-          ripgrep \
+          fswatch \
           fzf \
-          tmux \
-          python \
-          yarn
+          git \
+          gnupg \
+          htop \
+          httpie \
+          hub \
+          mosh \
+          ncdu \
+          openssl \
           pass \
           pass-otp \
-          gnupg \
+          pgcli \
+          python \
+          python \
+          ripgrep \
+          tmux \
+          tree \
+          watch \
           watchman
+          yarn
     elif command -v apt-get > /dev/null 2>&1; then
         sudo apt-get update
         sudo apt-get upgrade -y -qq
