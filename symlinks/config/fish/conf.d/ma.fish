@@ -83,7 +83,8 @@ alias envdev='cd $MA_REPOSITORY/tools/env-dev'
 
 alias jk_e2e_all='/Users/jordid/MAWork/JenkinsAPI/.venv/bin/python /Users/jordid/MAWork/JenkinsAPI/e2e_local_all.py'
 alias jk_e2e='/Users/jordid/MAWork/JenkinsAPI/.venv/bin/python /Users/jordid/MAWork/JenkinsAPI/e2e_local.py'
-alias jk_cypress='/Users/jordid/MAWork/JenkinsAPI/.venv/bin/python /Users/jordid/MAWork/JenkinsAPI/e2e_cypress.py'
+alias jk_e2e_cypress='/Users/jordid/MAWork/JenkinsAPI/.venv/bin/python /Users/jordid/MAWork/JenkinsAPI/e2e_cypress.py'
+alias jk_e2e_report='/Users/jordid/MAWork/JenkinsAPI/.venv/bin/python /Users/jordid/MAWork/JenkinsAPI/e2e_report.py'
 alias jk_deploy='/Users/jordid/MAWork/JenkinsAPI/.venv/bin/python /Users/jordid/MAWork/JenkinsAPI/deploy.py'
 
 alias selenium-chrome="open vnc://localhost:secret@localhost:5900"
