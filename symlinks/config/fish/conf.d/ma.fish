@@ -22,31 +22,6 @@ else
     set -x MA_REPOSITORY "$MA_FOLDER/meilleursagents"
 end
 
-set -x MA_APPS (env SCHEME="http" \
-        SSL_DISABLED="True" \
-        INSTANCE_NAME="$MA_INSTANCE" \
-        DOMAIN_NAME="meilleursagents.tech" \
-        envsubst < "$HOME/.config/ma-apps.conf")
-
-set -x MA_APPS_NAMES
-set -x MA_APPS_SERVICES
-set -x MA_APPS_PATHS
-set -l counter 0
-
-for i in $MA_APPS
-    if test (math $counter % 3) = 0
-        set MA_APPS_NAMES $MA_APPS_NAMES $i
-    end
-    if test (math $counter % 3) = 1
-        set MA_APPS_SERVICES $MA_APPS_SERVICES $i
-    end
-    if test (math $counter % 3) = 2
-        set MA_APPS_PATHS $MA_APPS_PATHS $i
-    end
-    set counter (math $counter + 1)
-end
-
-
 ############################################
 ### ENV
 #
@@ -67,6 +42,10 @@ set -x WEBPACK_NO_ESLINT 1
 # To make make init-dev work without GIT repo
 set -x VERSION_HASH "dev"
 
+
+############################################
+### Load config files
+#
 
 # Source ansible local rc manually because file does not contains `export` keyword
 set -l ansible_local_rc_file "$HOME/.ansible-localrc"
