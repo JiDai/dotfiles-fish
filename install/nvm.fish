@@ -7,6 +7,8 @@ function main
     echo "Install fish-nvm"
     omf install https://github.com/FabioAntunes/fish-nvm
 
+    export NVM_SYMLINK_CURRENT=true
+
     echo "Install and use Node 12"
     nvm install lts/erbium
     nvm alias default lts/erbium
@@ -16,6 +18,7 @@ function main
     npm i -g npm-check
     npm i -g yarn-check
     npm i -g watchman-processor
+    npm i -g browser-sync
 end
 
 main
