@@ -1,19 +1,12 @@
-
 function mastatus -d "[MA] Give a status of all app and services"
     function mastatus_call_curl
         source "$HOME/dotfiles-fish/helpers.fish"
 
         set -l loader "$argv[1]"
 
-        set -l apps (env SCHEME="http" \
-        SSL_DISABLED="True" \
-        INSTANCE_NAME="$MA_INSTANCE" \
-        DOMAIN_NAME="meilleursagents.tech" \
-        envsubst < "$HOME/.config/ma-apps.conf")
-
         echo "App status$loader"
 
-        for app in $apps
+        maapps | while read -l app
             set -l name (echo "$app" | awk '{print $2}')
             set -l url (echo "$app" | awk '{print $4}')
 
@@ -44,19 +37,13 @@ function mastatus -d "[MA] Give a status of all app and services"
         return 1
     end
 
-    set -l apps (env SCHEME="http" \
-      SSL_DISABLED="True" \
-      INSTANCE_NAME="$MA_INSTANCE" \
-      DOMAIN_NAME="meilleursagents.tech" \
-    envsubst < "$HOME/.config/ma-apps.conf")
-
     if ! test -d "$HOME/tmp"
         mkdir $HOME/tmp
     end
 
     set -l loader "..."
 
-    for app in $apps
+    maapps | while read -l app
         set -l name (echo "$app" | awk '{print $2}')
         set -l url (echo "$app" | awk '{print $4}')
 
@@ -64,9 +51,10 @@ function mastatus -d "[MA] Give a status of all app and services"
             continue
         end
 
-        curl --head --write-out '%{response_code}' --insecure --silent --create-dirs --output /dev/null "$url" > "$HOME/tmp/mastatus-$name" &
         echo "$loader" > "$HOME/tmp/mastatus-$name"
+        echo curl --write-out '%{response_code}' --insecure --silent --create-dirs --output /dev/null "$url" > "$HOME/tmp/mastatus-$name" &
+        curl --write-out '%{response_code}' --insecure --silent --create-dirs --output /dev/null "$url" > "$HOME/tmp/mastatus-$name" &
     end
 
-    watch -n 1 -t -c -x fish -c "mastatus_call_curl \"$loader\""
+    $HOME/homebrew/bin/watch -n 1 -t -c -x fish -c "mastatus_call_curl \"$loader\""
 end
