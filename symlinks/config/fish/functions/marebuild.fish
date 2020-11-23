@@ -1,28 +1,47 @@
 function marebuild --description "[MA] Rebuild all apps or one if specified"
-    set apps $MA_APPS
+    set arg_app "$argv[1]"
 
-    if test -n "$argv[1]"
-        set apps $argv[1]
+    if ! test -n "$arg_app[1]"
+        echo "Please give apps to rebuild"
+        return 1
     end
 
-    echo "Rebuild apps : $apps"
-    for i in $apps
-        set app_name (ls "$MA_REPOSITORY/apps/" | grep -i "$i" | head -1)
-        set app_name_lower (echo $app_name | tr '[:upper:]' '[:lower:]')
+    set -l rebuild_done 0
 
-        pushd "$MA_REPOSITORY/apps/$app_name"
+    maapps | while read -l app
+        set -l name (echo "$app" | awk '{print $1}')
+        set -l service_name (echo "$app" | awk '{print $2}')
 
-        echo "Rebuilding $app_name backend..."
-        make init-dev
+        if test "$arg_app" = "$service_name"; or test "$arg_app" = "$name"
+            echo "Rebuild $name"
 
-        set condition (make -qp | grep build-assets | wc -l)
-        if test $condition -gt 1
-            echo "Rebuilding $app_name assets..."
-            make build-assets
+            pushd "$MA_REPOSITORY/apps/$name"
+
+            if test -d "$MA_REPOSITORY/apps/$name/.git"
+                echo "Update code..."
+                git pull
+            end
+
+            echo "Rebuilding backend..."
+            make init-dev; or make init
+
+            set condition (make -qp | grep build-assets | wc -l)
+            if test $condition -gt 1
+                echo "Rebuilding assets..."
+                make build-assets
+            end
+
+            popd
+
+            set rebuild_done 1
+
+            marestart "$service_name"
         end
 
-        popd
+    end
 
-        marestart "$app_name_lower"
+    if test $rebuild_done -eq 0
+        echo "App $arg_app not found"
+        return 1
     end
 end

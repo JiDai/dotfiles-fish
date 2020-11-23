@@ -1,24 +1,29 @@
 function marestart --description "[MA] Restart all apps and services or one if specified"
-    set apps 'Barometre' 'ConnectAPI' 'GeoAPI' 'IndiceAPI' 'MailAPI' 'MarketAPI' 'MediaAPI' 'MyPro' 'MyProAPI' 'Partners' 'PdfAPI' 'ProfileAPI' 'SalesforceAPI' 'ThirdPartiesAPI' 'Thumbor' 'Tools' 'Wa' 'www'
-    set services 'nginx' 'redis-server' 'luigi'
+    if test -n "$argv[1]"
+        set arg_apps $argv[1]
+    end
 
     sudo systemctl daemon-reload # If sysctl configuration has changed
 
-    if test -n "$argv[1]"
-        sudo systemctl restart "$argv[1]"
-        return 0
-    end
+    if test -n "$arg_apps"
+        maapps | while read -l app
+            set -l name (echo "$app" | awk '{print $1}')
+            set -l service_name (echo "$app" | awk '{print $2}')
 
-    for i in $apps
-        set appName (ls "$MA_REPOSITORY/apps/" | grep -i "$i" | head -1)
-        set appNameLower (echo "$appName" | tr '[:upper:]' '[:lower:]')
+            for arg_app in $arg_apps
+                if test "$arg_app" = "$service_name"; or test "$arg_app" = "$name"
+                    echo "Restarting $name..."
+                    sudo systemctl restart $service_name
+                end
+            end
+        end
+    else
+        maapps | while read -l app
+            set -l name (echo "$app" | awk '{print $1}')
+            set -l service_name (echo "$app" | awk '{print $2}')
 
-        echo "Restarting $appName..."
-        sudo systemctl restart $appNameLower
-    end
-
-    for i in $services
-        echo "Restarting $i..."
-        sudo systemctl restart $i
+            echo "Restarting $name..."
+            sudo systemctl restart $service_name
+        end
     end
 end

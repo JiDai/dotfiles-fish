@@ -51,9 +51,8 @@ function mastatus -d "[MA] Give a status of all app and services"
             continue
         end
 
-        echo "$loader" > "$HOME/tmp/mastatus-$name"
-        echo curl --write-out '%{response_code}' --insecure --silent --create-dirs --output /dev/null "$url" > "$HOME/tmp/mastatus-$name" &
         curl --write-out '%{response_code}' --insecure --silent --create-dirs --output /dev/null "$url" > "$HOME/tmp/mastatus-$name" &
+        echo "$loader" > "$HOME/tmp/mastatus-$name"
     end
 
     $HOME/homebrew/bin/watch -n 1 -t -c -x fish -c "mastatus_call_curl \"$loader\""
