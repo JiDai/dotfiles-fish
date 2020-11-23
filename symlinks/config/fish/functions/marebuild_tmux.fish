@@ -4,7 +4,8 @@ function marebuild_tmux --description "[MA] Rebuild all apps in Tmux windows in 
         return 1
     end
 
-    for app in 'Barometre' 'ConnectAPI' 'GeoAPI' 'IndiceAPI' 'luigi' 'MailAPI' 'MarketAPI' 'MediaAPI' 'MyPro' 'MyProAPI' 'Partners' 'PdfAPI' 'ProfileAPI' 'SalesforceAPI' 'ThirdPartiesAPI' 'Thumbor' 'Tools' 'Wa' 'www'
-        tmux new-window -n "$app" -d "marebuild $app"
+    maapps | while read -l app
+        set -l name (echo "$app" | awk '{print $1}')
+        tmux new-window -n "$name" -d "marebuild $name; and sleep 10"
     end
 end
