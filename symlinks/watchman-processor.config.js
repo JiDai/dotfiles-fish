@@ -28,7 +28,6 @@ const ignoredFolders = [
     ".git/",
     ".env",
     "dist/",
-    "build/",
 
     // Cache files
     "*.pyc",
@@ -65,8 +64,8 @@ const ignoredFolders = [
     "MALegacy/config/config.jordid.inc",
     "MALegacy/static/js/*.js",
     "MALegacy/static/js/versions",
-    "mypro/static/mypro/",
-    "pdfapi/static/css",
+    "apps/www/www/static/build/",
+    "apps/PdfAPI/pdfapi/static/css",
 
     // App build version
     "VERSION",
@@ -79,14 +78,14 @@ const ignoredFolders = [
  * @see Watchman file query expresion: https://facebook.github.io/watchman/docs/file-query.html
  */
 function getUnwatchExpression(filesList) {
-    return ['allof',
-        ['type', 'f'],
+    return ["allof",
+        ["type", "f"],
         ...filesList.map(file => {
             // is dir ?
             if (/\/$/.test(file)) {
-                return ['not', ['match', `**/${file}**`, 'wholename']];
+                return ["not", ["match", `**/${file}**`, "wholename"]];
             } else {
-                return ['not', ['match', `**/${file}`, 'wholename']];
+                return ["not", ["match", `**/${file}`, "wholename"]];
             }
         }),
     ];
@@ -124,6 +123,36 @@ const subscriptions = [
         ignoreFolders: ignoredFolders,
     },
     {
+        active: true,
+        name: "wa",
+        type: "rsync", // set the subscription to rsync files from a 'source' folder to 'destination' folder
+        // source folder to sync:q
+        //
+        source: "/Users/jordid/MAWork/Webanalytics/",
+        // destination to sync, could be local or server location.  Any supported rsync location.
+        destination: "jordid@jordid:Webanalytics/",
+        // Watchman file query expresion: https://facebook.github.io/watchman/docs/file-query.html
+        // Default: ['allof', ['type', 'f']]
+        watchExpression: getUnwatchExpression(ignoredFolders),
+        // relative paths to ignore from watchman and rsync
+        ignoreFolders: ignoredFolders,
+    },
+    {
+        active: true,
+        name: "js-common",
+        type: "rsync", // set the subscription to rsync files from a 'source' folder to 'destination' folder
+        // source folder to sync:q
+        //
+        source: "/Users/jordid/MAWork/JS-Common/",
+        // destination to sync, could be local or server location.  Any supported rsync location.
+        destination: "jordid@jordid:JS-Common/",
+        // Watchman file query expresion: https://facebook.github.io/watchman/docs/file-query.html
+        // Default: ['allof', ['type', 'f']]
+        watchExpression: getUnwatchExpression(ignoredFolders),
+        // relative paths to ignore from watchman and rsync
+        ignoreFolders: ignoredFolders,
+    },
+    {
         active: false,
         name: "ma ssr",
         type: "rsync", // set the subscription to rsync files from a 'source' folder to 'destination' folder
@@ -149,11 +178,11 @@ const subscriptions = [
         ignoreFolders: ignoredFolders,
     },
     {
-        active: false,
+        active: true,
         name: "ma-www",
         type: "rsync", // set the subscription to rsync files from a 'source' folder to 'destination' folder
-        source: "/Users/jordid/GitHome/ma-www/",
-        destination: "jordid@jordid:node-www/",
+        source: "/Users/jordid/MAWork/www-next/",
+        destination: "jordid@jordid:www-next/",
         watchExpression: getUnwatchExpression(ignoredFolders),
         // relative paths to ignore from watchman and rsync
         ignoreFolders: ignoredFolders,
@@ -162,18 +191,28 @@ const subscriptions = [
         active: false,
         name: "ma-www ssr",
         type: "rsync", // set the subscription to rsync files from a 'source' folder to 'destination' folder
-        source: "/Users/jordid/GitHome/ma-www/",
+        source: "/Users/jordid/MAWork/ma-www/",
         destination: "ssr@ssr:ma-www/",
         watchExpression: getUnwatchExpression(ignoredFolders),
         // relative paths to ignore from watchman and rsync
         ignoreFolders: ignoredFolders,
     },
     {
-        active: false,
+        active: true,
         name: "ma-www jsons",
         type: "rsync", // set the subscription to rsync files from a 'source' folder to 'destination' folder
-        source: "/Users/jordid/GitHome/ma-www-jsons/",
-        destination: "ssr@ssr:ma-www-jsons/",
+        source: "/Users/jordid/MAWork/ma-www-jsons/",
+        destination: "jordid@jordid:ma-www-jsons/",
+        watchExpression: getUnwatchExpression(ignoredFolders),
+        // relative paths to ignore from watchman and rsync
+        ignoreFolders: ignoredFolders,
+    },
+    {
+        active: true,
+        name: "test-next-rewrite",
+        type: "rsync", // set the subscription to rsync files from a 'source' folder to 'destination' folder
+        source: "/Users/jordid/GitHome/test-next-rewrite/",
+        destination: "jordid@jordid:test-next-rewrite/",
         watchExpression: getUnwatchExpression(ignoredFolders),
         // relative paths to ignore from watchman and rsync
         ignoreFolders: ignoredFolders,
@@ -242,6 +281,6 @@ subscriptions.forEach(subscription => {
 module.exports = {
     debug: process.env.DEBUG || false, // changes the output to show debug information, cmd and stdout output
     emoji: true, // if your terminal window can support emojis
-    rsyncCmd: 'rsync', // default: 'rsync' -- override to whatever rsync command is installed or located
+    rsyncCmd: "rsync", // default: 'rsync' -- override to whatever rsync command is installed or located
     subscriptions: subscriptionsConfig,
 };
