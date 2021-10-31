@@ -23,6 +23,7 @@ prerequisites() {
         # Installed packages must be also declared in uninstall.sh
         brew install \
           curl \
+          deno \
           fish \
           fswatch \
           fzf \
