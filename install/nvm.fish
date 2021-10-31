@@ -19,6 +19,7 @@ function main
     npm i -g yarn-check
     npm i -g watchman-processor
     npm i -g browser-sync
+    npm i -g vercel
 end
 
 main
