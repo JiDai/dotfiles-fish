@@ -27,6 +27,7 @@ prerequisites() {
           fswatch \
           fzf \
           git \
+          gh \
           gnupg \
           htop \
           httpie \
