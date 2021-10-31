@@ -39,6 +39,7 @@ prerequisites() {
           pass \
           pass-otp \
           pgcli \
+          php \
           python \
           php \
           ripgrep \
@@ -46,7 +47,7 @@ prerequisites() {
           tree \
           twitchdev/twitch/twitch-cli \
           watch \
-          watchman
+          watchman \
           yarn
     elif command -v apt-get > /dev/null 2>&1; then
         sudo apt-get update
@@ -80,6 +81,9 @@ prerequisites() {
         # Workaround after a failed install
         # $ sudo dpkg-divert --add --divert /usr/share/fish/completions/rg.fish.0 --rename --package ripgrep /usr/share/fish/completions/rg.fish
         # $ apt --fix-broken install
+
+        # for alfred
+        sudo ln -s $HOME/homebrew/bin/php /usr/local/bin/php
     fi
 }
 
