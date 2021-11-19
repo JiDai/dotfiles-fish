@@ -40,7 +40,7 @@ prerequisites() {
           pass-otp \
           pgcli \
           python \
-          python \
+          php \
           ripgrep \
           tmux \
           tree \
