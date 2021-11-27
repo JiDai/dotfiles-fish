@@ -44,6 +44,7 @@ prerequisites() {
           ripgrep \
           tmux \
           tree \
+          twitchdev/twitch/twitch-cli \
           watch \
           watchman
           yarn
