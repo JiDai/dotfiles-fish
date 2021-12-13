@@ -30,3 +30,6 @@ if test -d "$HOME/.pyenv"
     status --is-interactive; and source (pyenv init - | psub)
     status --is-interactive; and source (pyenv virtualenv-init - | psub)
 end
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/jordid/Downloads/google-cloud-sdk/path.fish.inc' ]; . '/Users/jordid/Downloads/google-cloud-sdk/path.fish.inc'; end
