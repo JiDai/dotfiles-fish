@@ -83,7 +83,7 @@ SETUVAR _fish_abbr_gdk:git\x20ls\x2dfiles\x20\x2d\x2dkilled
 SETUVAR _fish_abbr_gdm:git\x20ls\x2dfiles\x20\x2d\x2dmodified
 SETUVAR _fish_abbr_gdu:git\x20ls\x2dfiles\x20\x2d\x2dother\x20\x2d\x2dexclude\x2dstandard
 SETUVAR _fish_abbr_gdx:git\x20ls\x2dfiles\x20\x2d\x2ddeleted
-SETUVAR _fish_abbr_get__expected__responses:rsync\x20\x2drv\x20jordid\x3a\x7e/meilleursagents/apps/www/tests/unit/views/\x2eexpected_responses/\x20/Users/jordid/MAWork/MeilleursAgents/apps/www/tests/unit/views/\x2eexpected_responses/
+SETUVAR _fish_abbr_get__expected__responses:rsync\x20\x2drv\x20jordid\x3a\x7e/meilleursagents/apps/www/tests/unit/views/\x2eexpected_responses/\x20/Users/jidai/MAWork/MeilleursAgents/apps/www/tests/unit/views/\x2eexpected_responses/
 SETUVAR _fish_abbr_gf:git\x20fetch
 SETUVAR _fish_abbr_gfa:git\x20fetch\x20\x2d\x2dall
 SETUVAR _fish_abbr_gfc:git\x20clone
@@ -153,7 +153,7 @@ SETUVAR _fish_abbr_gwd:git\x20diff\x20\x2d\x2dno\x2dext\x2ddiff
 SETUVAR _fish_abbr_gwr:git\x20reset\x20\x2d\x2dsoft
 SETUVAR _fish_abbr_gws:git\x20status\x20\x2d\x2dignore\x2dsubmodules\x3d\x24_git_status_ignore_submodules\x20\x2d\x2dshort
 SETUVAR _fish_abbr_gwx:git\x20rm\x20\x2dr
-SETUVAR _fish_abbr_h:cd\x20/Users/jordid
+SETUVAR _fish_abbr_h:cd\x20/Users/jidai
 SETUVAR _fish_abbr_jlog:sudo\x20journalctl\x20\x2df\x20\x2dn\x2020
 SETUVAR _fish_abbr_ncdu:ncdu\x20\x2d\x2dcolor\x20dark
 SETUVAR _fish_abbr_npmb:npm\x20run\x20build
@@ -166,7 +166,7 @@ SETUVAR _fish_abbr_npmu:npm\x20uninstall
 SETUVAR _fish_abbr_rr:rm\x20\x2drf
 SETUVAR _fish_abbr_rsync:rsync\x20\x2dvh
 SETUVAR _fish_abbr_slog:sudo\x20tail\x20\x2df\x20\x2dn\x2020\x20/var/log/syslog
-SETUVAR _fish_abbr_tml:tmuxp\x20load\x20/Users/jordid/\x2etmuxp\x2dma\x2eyml
+SETUVAR _fish_abbr_tml:tmuxp\x20load\x20/Users/jidai/\x2etmuxp\x2dma\x2eyml
 SETUVAR _fish_abbr_tree:tree\x20\x2dA
 SETUVAR _fish_abbr_tree1:tree\x20\x2dd\x20\x2dL\x201
 SETUVAR _fish_abbr_tree2:tree\x20\x2dd\x20\x2dL\x202
