@@ -22,6 +22,7 @@ prerequisites() {
         brew upgrade
         # Installed packages must be also declared in uninstall.sh
         brew install \
+          blueutil \
           curl \
           deno \
           fish \
@@ -43,6 +44,7 @@ prerequisites() {
           python \
           php \
           ripgrep \
+          sleepwatcher \
           tmux \
           tree \
           twitchdev/twitch/twitch-cli \
