@@ -19,6 +19,10 @@ end
 # inaries in node-modules
 set -gx PATH ./node_modules/.bin/ $PATH
 
+# go
+set -gx GOROOT /Users/jidai/go-sdk/go1.19 #gosetup
+set -gx GOPATH /Users/jidai/GitHome/go #gosetup
+set -gx PATH $GOPATH $GOROOT $PATH
 
 # CLI PostGres
 set -gx PATH /Applications/Postgres.app/Contents/Versions/latest/bin $PATH
