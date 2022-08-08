@@ -1,5 +1,5 @@
 function main
-  set GO_VERSION "1.12.8"
+  set GO_VERSION "1.19"
 
   set OS (uname -s | tr "[:upper:]" "[:lower:]")
   set ARCH (uname -m | tr "[:upper:]" "[:lower:]")
