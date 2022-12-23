@@ -45,47 +45,33 @@ function main
 
     if command -v brew > /dev/null 2>&1
         brew uninstall --ignore-dependencies \
-          htop \
-          curl \
-          ncdu \
-          git \
-          fswatch \
-          openssl \
-          python \
-          tree \
-          hub \
-          httpie \
-          mosh \
-          watch \
-          fish \
-          pgcli \
-          ripgrep \
-          fzf \
-          tmux \
-          python
-          #pass \
-          #pass-otp \
-          #gnupg \
+            bat \
+            curl \
+            deno \
+            fswatch \
+            fzf \
+            git \
+            gh \
+            htop \
+            httpie \
+            n \
+            ncdu \ 
+            openssl \
+            pass \
+            pass-otp \
+            pgcli \
+            php \
+            python \
+            php \
+            ripgrep \
+            tmux \
+            tree \
+            twitchdev/twitch/twitch-cli \
+            watch \
+            yarn
        
         brew cleanup
         ruby -e (curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)
-
-    else if command -v apt-get > /dev/null 2>&1
-        sudo apt-get install -y -qq \
-            bash \
-            bash-completion \
-            htop \
-            curl \
-            git \
-            tree \
-            mosh \
-            fish \
-            pgcli \
-            fzf \
-            python \
-            tmux
-        sudo apt-get autoremove -y
-        sudo apt-get clean all
     end
 
     

@@ -18,7 +18,6 @@ end
 
 
 
-# Symlinks must be init after installation of OMF to avoid errors during install
 print_title "Symlinks"
 
 set base_folder "./symlinks"

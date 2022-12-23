@@ -34,7 +34,4 @@ end
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/jordid/Downloads/google-cloud-sdk/path.fish.inc' ]; . '/Users/jordid/Downloads/google-cloud-sdk/path.fish.inc'; end
 
-# bun
-set -Ux BUN_INSTALL "/Users/jidai/.bun"
-fish_add_path "/Users/jidai/.bun/bin"
-
+set fzf_preview_file_cmd __fzf_preview_file_content

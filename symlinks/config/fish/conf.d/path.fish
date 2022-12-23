@@ -1,11 +1,5 @@
 set -gx PATH /usr/local/bin $PATH
 
-# Path to Oh My Fish install.
-set -gx OMF_PATH $HOME/opt/omf
-
-# Customize Oh My Fish configuration path.
-set -gx OMF_CONFIG $HOME/.config/omf
-
 # Brew
 if test -d $HOME/homebrew
     set -gx PATH $HOME/homebrew/sbin $HOME/homebrew/bin $PATH
