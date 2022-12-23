@@ -1,7 +1,7 @@
 [user]
     name = Jordi Dosne
-    email = jordi@dosne.net
-    signingkey = 15EF8A80B8BD7D12
+    email = jidai@dosne.net
+    signingkey = 58C64871D59DC4A9
 
 [github]
     user = jidai
@@ -11,6 +11,7 @@
     editor = vim
     filemode = false
     trustctime = false
+    autocrlf = input
 
 [alias]
     st = status
