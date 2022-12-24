@@ -40,7 +40,6 @@ prerequisites() {
 		pass-otp \
 		pgcli \
 		php \
-		python \
 		php \
 		ripgrep \
 		timg \
