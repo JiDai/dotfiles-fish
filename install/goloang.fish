@@ -4,20 +4,15 @@ function main
   set OS "darwin"
   set ARCH "arm64"
 
+  source './symlinks/config/fish/conf.d/golang.fish'
+
   if ! test -d "$HOME/opt/go"
     set GO_ARCHIVE "go$GO_VERSION.$OS-$ARCH.tar.gz"
- 
+
     curl -O "https://dl.google.com/go/$GO_ARCHIVE"
     tar -C "$HOME/opt" -xzf "$GO_ARCHIVE"
     rm -rf "$GO_ARCHIVE"
   end
-
-  mkdir -p "$GOPATH"
-
-	set -gx GOPATH $HOME/go-workspace
-	set -gx PATH $GOPATH/bin $PATH
-	set -gx PATH $GOROOT/bin $PATH
-  set -gx PATH $HOME/opt/go/bin $PATH
 
   if command -v go > /dev/null 2>&1
     go install github.com/kisielk/errcheck@latest

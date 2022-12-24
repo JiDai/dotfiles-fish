@@ -6,6 +6,12 @@ source './helpers.fish'
 set SCRIPT_DIR (realpath '.')
 
 
+print_title "Install fisher and plugins"
+curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
+fisher install rstacruz/fish-asdf
+fisher install PatrickF1/fzf.fish
+fisher install kidonng/preview.fish
+
 print_title "Installs and configure tools"
 
 for file in $SCRIPT_DIR/install/*
@@ -89,4 +95,3 @@ echo "Install VIM plugins, in vim type :"
 echo
 echo "   :PlugInstall"
 echo
-
