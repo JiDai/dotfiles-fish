@@ -24,14 +24,13 @@ if test -f "$HOME/.localrc"
 	source $HOME/.localrc
 end
 
-if test -d "$HOME/.pyenv"
-	set -x PYENV_ROOT $HOME/.pyenv
-	set -x PATH $PYENV_ROOT/bin $PATH
-	status --is-interactive; and source (pyenv init - | psub)
-	status --is-interactive; and source (pyenv virtualenv-init - | psub)
-end
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/jordid/Downloads/google-cloud-sdk/path.fish.inc' ]; . '/Users/jordid/Downloads/google-cloud-sdk/path.fish.inc'; end
-
+# Configure preview generation on FZF finder
 set fzf_preview_file_cmd __fzf_preview_file_content
+
+# init asdf configuration
+source (brew --prefix asdf)/libexec/asdf.fish
+
+# Load direnv
+direnv hook fish | source
+
+load_em

@@ -5,10 +5,8 @@ source './helpers.fish'
 
 set SCRIPT_DIR (realpath '.')
 
-
 print_title "Install fisher and plugins"
 curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
-fisher install rstacruz/fish-asdf
 fisher install PatrickF1/fzf.fish
 fisher install kidonng/preview.fish
 

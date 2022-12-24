@@ -40,7 +40,6 @@ prerequisites() {
 		pass-otp \
 		pgcli \
 		php \
-		python \
 		php \
 		ripgrep \
 		timg \
@@ -48,7 +47,8 @@ prerequisites() {
 		tree \
 		twitchdev/twitch/twitch-cli \
 		watch \
-		yarn
+		# SF specific
+		minio-mc shellcheck libpq coreutils asdf bash
 }
 
 main() {

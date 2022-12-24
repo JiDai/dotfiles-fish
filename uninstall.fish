@@ -61,14 +61,13 @@ function main
 			pass-otp \
 			pgcli \
 			php \
-			python \
-			php \
 			ripgrep \
 			tmux \
 			tree \
 			twitchdev/twitch/twitch-cli \
 			watch \
-			yarn
+			# SF specific
+			minio-mc shellcheck jq libpq coreutils asdf bash
 
 		brew cleanup
 		ruby -e (curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)
