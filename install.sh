@@ -24,6 +24,7 @@ prerequisites() {
         bat \
         curl \
         deno \
+        fish \
         fswatch \
         fzf \
         git \
@@ -31,7 +32,7 @@ prerequisites() {
         htop \
         httpie \
         n \
-        ncdu \ 
+        ncdu \
         openssl \
         pass \
         pass-otp \
