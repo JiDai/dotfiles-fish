@@ -48,7 +48,7 @@ function main
 			fish \
 			fswatch \
 			fzf \
-				glow \
+			glow \
 			git \
 			gh \
 			htop \
