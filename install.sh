@@ -4,8 +4,6 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-readonly SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-
 export PATH="${HOME}/opt/bin:${PATH}"
 export PATH="${HOME}/homebrew/sbin:${HOME}/homebrew/bin:${PATH}"
 
