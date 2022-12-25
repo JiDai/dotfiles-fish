@@ -21,14 +21,14 @@ set -U fish_color_command green
 set -U fish_color_param normal
 
 if test -f "$HOME/.localrc"
-    source $HOME/.localrc
+	source $HOME/.localrc
 end
 
 if test -d "$HOME/.pyenv"
-    set -x PYENV_ROOT $HOME/.pyenv
-    set -x PATH $PYENV_ROOT/bin $PATH
-    status --is-interactive; and source (pyenv init - | psub)
-    status --is-interactive; and source (pyenv virtualenv-init - | psub)
+	set -x PYENV_ROOT $HOME/.pyenv
+	set -x PATH $PYENV_ROOT/bin $PATH
+	status --is-interactive; and source (pyenv init - | psub)
+	status --is-interactive; and source (pyenv virtualenv-init - | psub)
 end
 
 # The next line updates PATH for the Google Cloud SDK.

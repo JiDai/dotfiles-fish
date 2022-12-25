@@ -71,8 +71,8 @@ set _git_log_brief_format '%Cgreen%h%Creset %s%n%Cblue%ar by %an%Cred%d%Creset%n
 set _git_status_ignore_submodules 'all'
 
 function git-branch-current
-    set -l branch (git branch 2> /dev/null | grep -e '\* ' | sed 's/^..\(.*\)/\1/')
-    echo $branch
+	set -l branch (git branch 2> /dev/null | grep -e '\* ' | sed 's/^..\(.*\)/\1/')
+	echo $branch
 end
 
 
