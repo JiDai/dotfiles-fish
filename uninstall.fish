@@ -33,11 +33,8 @@ function main
 	rm -rf $HOME/.vim/plugged
 	rmdir $HOME/.vim > /dev/null 2>&1
 
-	echo "NVM"
-	rm -rf $HOME/.nvm/
-
 	echo "Go"
-	rmdir $HOME/go-workspace > /dev/null 2>&1
+	rmdir $HOME/GitHome/go > /dev/null 2>&1
 
 
 	print_title "Uninstalls"

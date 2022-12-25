@@ -1,4 +1,4 @@
-# Install and configure NVM
+# Install and configure NPM packages
 
 function main
 	echo "Install NPM global packages"
