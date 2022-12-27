@@ -53,6 +53,7 @@ function main
 			gh \
 			htop \
 			httpie \
+			jq \
 			n \
 			ncdu \
 			openssl \

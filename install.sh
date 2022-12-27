@@ -31,6 +31,7 @@ prerequisites() {
 		glow \
 		htop \
 		httpie \
+		jq \
 		n \
 		ncdu \
 		openssl \
