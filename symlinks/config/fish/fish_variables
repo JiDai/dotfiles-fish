@@ -173,6 +173,7 @@ SETUVAR _fish_abbr_rmnm:find\x20\x2e\x20\x2dname\x20\x27node_modules\x27\x20\x2d
 SETUVAR _fish_abbr_rr:rm\x20\x2drf
 SETUVAR _fish_abbr_rsync:rsync\x20\x2dvh
 SETUVAR _fish_abbr_sf:cd\x20/Users/jordid/Work/spacefill
+SETUVAR _fish_abbr_sfe2e:cd\x20/Users/jordid/Work/spacefill/services/frontends/packages/end2end
 SETUVAR _fish_abbr_sff:cd\x20/Users/jordid/Work/spacefill/services/frontends
 SETUVAR _fish_abbr_sffa:cd\x20/Users/jordid/Work/spacefill/services/frontends/packages/admin\x2dconsole/
 SETUVAR _fish_abbr_sffe:cd\x20/Users/jordid/Work/spacefill/services/frontends/packages/external\x2dconsole/
