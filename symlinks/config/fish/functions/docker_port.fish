@@ -1,4 +1,9 @@
 function docker_port --description "Show the port exposed of a container"
+	if ! docker info > /dev/null 2>&1
+		echo "Docker is not running"
+		return 1
+	end
+
 	if test -n "$argv[1]"
 		docker ps | grep $argv[1] | sed 's/.*0.0.0.0://g'|sed 's/->.*//g'
 	else
