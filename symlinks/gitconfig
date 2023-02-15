@@ -1,7 +1,7 @@
 [user]
 	name = Jordi Dosne
-	email = f_github@jidai.fr
-	signingkey = 58C64871D59DC4A9
+	email = jordi.dosne@spacefill.fr
+	signingkey = C713B2AB138BFA90
 
 [github]
 	user = jidai
