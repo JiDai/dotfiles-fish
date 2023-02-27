@@ -1,4 +1,15 @@
-nodejs system
-python system
-yarn system
+# if you update this version don't forget to update version in:
+# - scripts/doctor.sh
+# - services/frontends/package.json
+# - ci/docker-images/builder-commitlint/package.json
+# - ...
+# - ci/docker-images/builder-frontends/Dockerfile
+# - ci/docker-images/builder-end2end/Dockerfile
+# - ...
+#
+# Use your editor search engine to update this version everywhere.
+#
+nodejs 16.13.1
+yarn 1.22.17
+python 3.10.3
 direnv 2.32.1
