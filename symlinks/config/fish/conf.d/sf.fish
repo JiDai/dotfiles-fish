@@ -8,5 +8,6 @@ abbr sff "cd $SF_PATH/services/frontends"
 abbr sffa "cd $SF_PATH/services/frontends/packages/admin-console/"
 abbr sffe "cd $SF_PATH/services/frontends/packages/external-console/"
 abbr sfe2e "cd $SF_PATH/services/frontends/packages/end2end"
+abbr sfgqlupdate "npm --prefix $SF_PATH/services/frontends/packages/shared run download-graphql-schema"
 
 set -gx PATH "$SF_PATH/scripts" "$PATH"
