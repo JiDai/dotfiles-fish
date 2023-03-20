@@ -178,6 +178,7 @@ SETUVAR _fish_abbr_sff:cd\x20/Users/jordid/Work/spacefill/services/frontends
 SETUVAR _fish_abbr_sffa:cd\x20/Users/jordid/Work/spacefill/services/frontends/packages/admin\x2dconsole/
 SETUVAR _fish_abbr_sffe:cd\x20/Users/jordid/Work/spacefill/services/frontends/packages/external\x2dconsole/
 SETUVAR _fish_abbr_sfgqlupdate:npm\x20\x2d\x2dprefix\x20/Users/jordid/Work/spacefill/services/frontends/packages/shared\x20run\x20download\x2dgraphql\x2dschema
+SETUVAR _fish_abbr_sfi18n:npm\x20\x2d\x2dprefix\x20/Users/jordid/Work/spacefill/services/frontends/packages/shared\x20run\x20i18n
 SETUVAR _fish_abbr_slog:sudo\x20tail\x20\x2df\x20\x2dn\x2020\x20/var/log/syslog
 SETUVAR _fish_abbr_tml:tmuxp\x20load\x20/Users/jidai/\x2etmuxp\x2dma\x2eyml
 SETUVAR _fish_abbr_tree:tree\x20\x2dA
