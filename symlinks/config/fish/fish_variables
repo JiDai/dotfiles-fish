@@ -5,6 +5,11 @@ SETUVAR __fish_init_2_3_0:\x1d
 SETUVAR __fish_init_3_x:\x1d
 SETUVAR __fish_initialized:3400
 SETUVAR _fish_abbr__2E_2E_:cd\x20\x2e\x2e
+SETUVAR _fish_abbr_bdn:cd\x20\x7e/GitHome/botdenevers/
+SETUVAR _fish_abbr_bdnb:cd\x20\x7e/GitHome/botdenevers/botdenevers\x2dbot/
+SETUVAR _fish_abbr_bdns:cd\x20\x7e/GitHome/botdenevers/botdenevers\x2dstream/
+SETUVAR _fish_abbr_bdnv:cd\x20\x7e/GitHome/botdenevers/botdenevers\x2dserver/
+SETUVAR _fish_abbr_bdnw:cd\x20\x7e/GitHome/botdenevers/botdenevers\x2dwebsite/
 SETUVAR _fish_abbr_cd_2E_:cd\x20\x28readlink\x20\x2df\x20\x2e\x29
 SETUVAR _fish_abbr_d:docker
 SETUVAR _fish_abbr_dc:docker\x2dcompose
@@ -162,6 +167,8 @@ SETUVAR _fish_abbr_npmr:npm\x20run
 SETUVAR _fish_abbr_npms:npm\x20start
 SETUVAR _fish_abbr_npmt:npm\x20test
 SETUVAR _fish_abbr_npmu:npm\x20uninstall
+SETUVAR _fish_abbr_pfb:cd\x20\x7e/GitHome/pere\x2dfouras\x2dbot/
+SETUVAR _fish_abbr_rmnm:find\x20\x2e\x20\x2dname\x20\x27node_modules\x27\x20\x2dtype\x20d\x20\x2dprune\x20\x2dexec\x20rm\x20\x2drf\x20\x27\x7b\x7d\x27\x20\x2b
 SETUVAR _fish_abbr_rr:rm\x20\x2drf
 SETUVAR _fish_abbr_rsync:rsync\x20\x2dvh
 SETUVAR _fish_abbr_slog:sudo\x20tail\x20\x2df\x20\x2dn\x2020\x20/var/log/syslog

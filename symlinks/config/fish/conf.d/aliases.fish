@@ -18,6 +18,12 @@ abbr h "cd $HOME"
 abbr .. "cd .."
 abbr cd. 'cd (readlink -f .)'
 
+abbr bdn "cd ~/GitHome/botdenevers/"
+abbr bdns "cd ~/GitHome/botdenevers/botdenevers-stream/"
+abbr bdnv "cd ~/GitHome/botdenevers/botdenevers-server/"
+abbr bdnb "cd ~/GitHome/botdenevers/botdenevers-bot/"
+abbr bdnw "cd ~/GitHome/botdenevers/botdenevers-website/"
+abbr pfb "cd ~/GitHome/pere-fouras-bot/"
 
 ############################################
 ### logs
@@ -60,6 +66,7 @@ abbr npmr "npm run"
 abbr npmd "npm run dev"
 abbr npmb "npm run build"
 abbr npmt "npm test"
+abbr rmnm "find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +"
 
 ############################################
 ### GIT
