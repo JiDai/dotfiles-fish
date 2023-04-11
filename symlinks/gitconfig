@@ -1,6 +1,6 @@
 [user]
 	name = Jordi Dosne
-	email = jidai@dosne.net
+	email = f_github@jidai.fr
 	signingkey = 58C64871D59DC4A9
 
 [github]
@@ -103,3 +103,8 @@
 
 [init]
 	defaultBranch = main
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
