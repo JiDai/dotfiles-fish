@@ -15,3 +15,6 @@ set -gx PATH ./node_modules/.bin/ $PATH
 
 # CLI PostGres
 set -gx PATH /Applications/Postgres.app/Contents/Versions/latest/bin $PATH
+
+set -gx N_PREFIX $HOME/.n
+set -gx PATH $N_PREFIX/bin $PATH
