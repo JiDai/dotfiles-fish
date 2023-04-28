@@ -6,7 +6,7 @@ abbr rr "rm -rf"
 abbr ncdu "ncdu --color dark"
 
 if type -q $file
-  hub; AND eval (hub alias -s) # alias git=hub
+	hub; AND eval (hub alias -s) # alias git=hub
 end
 
 

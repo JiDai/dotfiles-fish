@@ -3,7 +3,7 @@
 set -gx GOROOT $HOME/opt/go
 
 if test -d $GOROOT/bin
-  set -gx PATH $GOROOT/bin $PATH
+	set -gx PATH $GOROOT/bin $PATH
 end
 
 set -gx GOPATH $HOME/GitHome/go

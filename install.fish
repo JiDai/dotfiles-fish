@@ -29,7 +29,7 @@ print_title "Symlinks"
 set base_folder "./symlinks"
 set dest "$HOME"
 
-for file in (find $base_folder -type f  | grep -v '/\.')
+for file in (find $base_folder -type f | grep -v '/\.')
 	set file_dir (dirname $file)
 
 	# Root folder

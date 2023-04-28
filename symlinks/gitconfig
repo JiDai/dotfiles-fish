@@ -76,7 +76,7 @@
 	default = simple
 
 [fetch]
-  prune = true
+	prune = true
 
 [diff]
 	renames = copies
