@@ -37,6 +37,8 @@ abbr jlog "sudo journalctl -f -n 20"
 #
 
 abbr d "docker"
+abbr dclean "docker system prune --force"
+
 abbr dc "docker-compose"
 abbr dcu "docker-compose up --remove-orphans"
 abbr dcr "docker-compose restart"
