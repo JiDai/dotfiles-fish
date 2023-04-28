@@ -14,6 +14,7 @@ SETUVAR _fish_abbr_cd_2E_:cd\x20\x28readlink\x20\x2df\x20\x2e\x29
 SETUVAR _fish_abbr_d:docker
 SETUVAR _fish_abbr_dc:docker\x2dcompose
 SETUVAR _fish_abbr_dce:docker\x2dcompose\x20exec\x20bash
+SETUVAR _fish_abbr_dclean:docker\x20system\x20prune\x20\x2d\x2dforce
 SETUVAR _fish_abbr_dcr:docker\x2dcompose\x20restart
 SETUVAR _fish_abbr_dcu:docker\x2dcompose\x20up\x20\x2d\x2dremove\x2dorphans
 SETUVAR _fish_abbr_e2e:cd\x20/Users/jordid/Work/spacefill/services/frontends/packages/end2end
