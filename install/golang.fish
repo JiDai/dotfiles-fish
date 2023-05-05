@@ -6,8 +6,10 @@ function main
 
 	source './symlinks/config/fish/conf.d/golang.fish'
 
-	set GO_ARCHIVE "go$GO_VERSION.$OS-$ARCH.tar.gz"
+	# Remove old version
+	rm -rvf "$HOME/opt/go"
 
+	set GO_ARCHIVE "go$GO_VERSION.$OS-$ARCH.tar.gz"
 	curl -O "https://dl.google.com/go/$GO_ARCHIVE"
 	tar -C "$HOME/opt" -xzf "$GO_ARCHIVE"
 	rm -rf "$GO_ARCHIVE"
