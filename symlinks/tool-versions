@@ -9,7 +9,7 @@
 #
 # Use your editor search engine to update this version everywhere.
 #
-nodejs 16.13.1
+nodejs 16.20.0
 yarn 1.22.17
 python 3.10.3
 direnv 2.32.1
