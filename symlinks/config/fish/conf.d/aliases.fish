@@ -69,6 +69,7 @@ abbr npmd "npm run dev"
 abbr npmb "npm run build"
 abbr npmt "npm test"
 abbr rmnm "find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +"
+abbr rmlocks "find . \( -name "yarn.lock" -o -name "package-lock.json" -o -name "pnpm-lock.yaml" \) -type d -exec rm -rf '{}' +"
 
 ############################################
 ### GIT
