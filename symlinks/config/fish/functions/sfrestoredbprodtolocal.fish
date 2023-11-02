@@ -4,6 +4,8 @@ function sfrestoredbprodtolocal --description "[SF] Restore the DB prod in local
 		return 1
 	end
 
-	download-prod-db.sh
-	import-db-locally.sh prod
+	download-prod-db.sh; \
+		and import-db-locally.sh prod; \
+		and execute-migrations.sh; \
+		and replace-all-password-locally.sh;
 end
