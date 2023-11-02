@@ -10,7 +10,7 @@ if test -d $HOME/opt/bin
 	set -gx PATH $HOME/opt/bin $PATH
 end
 
-# inaries in node-modules
+# Binaries in node-modules
 set -gx PATH ./node_modules/.bin/ $PATH
 
 # CLI PostGres
