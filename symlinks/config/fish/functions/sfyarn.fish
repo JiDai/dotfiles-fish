@@ -1,6 +1,6 @@
 function sfyarn --description "[SF] Re-install frontend deps"
   sf
-  pushd $SF_PATH/services/frontends
+  pushd ~Work/frontends
   yarn
   popd
 end

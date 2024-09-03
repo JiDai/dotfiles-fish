@@ -14,3 +14,11 @@ abbr sfe2e "cd ~/Work/frontends/packages/end2end"
 abbr sfui "cd ~/Work/frontends/packages/uikit"
 
 set -gx PATH "$SF_PATH/scripts" "$PATH"
+
+
+  fish_add_path /Users/jordid/homebrew/opt/libpq/bin
+
+  set -gx LDFLAGS "-L/Users/jordid/homebrew/opt/libpq/lib"
+  set -gx CPPFLAGS "-I/Users/jordid/homebrew/opt/libpq/include"
+
+  set -gx PKG_CONFIG_PATH "/Users/jordid/homebrew/opt/libpq/lib/pkgconfig"
