@@ -7,3 +7,4 @@
 node_modules
 bower_components
 jsconfig.json
+react-scanner.config.js
