@@ -22,3 +22,6 @@ set -gx PATH "$SF_PATH/scripts" "$PATH"
   set -gx CPPFLAGS "-I/Users/jordid/homebrew/opt/libpq/include"
 
   set -gx PKG_CONFIG_PATH "/Users/jordid/homebrew/opt/libpq/lib/pkgconfig"
+
+set -gx DENO_INSTALL "$HOME/.deno"
+set -gx PATH "$DENO_INSTALL/bin:$PATH"
