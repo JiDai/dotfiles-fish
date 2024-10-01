@@ -1,9 +1,11 @@
 set -gx PATH /usr/local/bin $PATH
-
 # Brew
 if test -d $HOME/homebrew
 	set -gx PATH $HOME/homebrew/sbin $HOME/homebrew/bin $PATH
 end
+
+# init asdf configuration
+source (brew --prefix asdf)"/libexec/asdf.fish"
 
 # Custom binaries
 if test -d $HOME/opt/bin

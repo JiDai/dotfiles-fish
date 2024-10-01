@@ -27,8 +27,6 @@ end
 # Configure preview generation on FZF finder
 set fzf_preview_file_cmd __fzf_preview_file_content
 
-# init asdf configuration
-source (brew --prefix asdf)/libexec/asdf.fish
 
 # Load direnv
 direnv hook fish | source
