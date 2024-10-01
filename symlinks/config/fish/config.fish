@@ -34,3 +34,9 @@ source (brew --prefix asdf)/libexec/asdf.fish
 direnv hook fish | source
 
 load_em
+
+# completions
+
+if command -v ngrok &>/dev/null; then
+    eval "$(ngrok completion)"
+fi
