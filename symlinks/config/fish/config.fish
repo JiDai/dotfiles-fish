@@ -37,6 +37,6 @@ load_em
 
 # completions
 
-if command -v ngrok &>/dev/null; then
-    eval "$(ngrok completion)"
-fi
+if command -v ngrok &>/dev/null
+    eval (ngrok completion)
+end
