@@ -9,7 +9,7 @@ function wait_for_docker_container --description "Wait for docker container runn
 	set container_list ""
 	while test "$container_list" != "$container_name"
 		echo "Wait for container running : $container_name"
-		set container_list (docker ps --filter "name=$container_name" --filter "status=running" --format "{{.Names}}")
+		set container_list (docker ps --filter "name=^$container_name\$" --filter "status=running" --format "{{.Names}}")
 		sleep 3
 	end
 end
