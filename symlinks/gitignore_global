@@ -9,4 +9,4 @@ bower_components
 jsconfig.json
 react-scanner.config.js
 
-**/.claude/settings.local.json
+**/.claude/
