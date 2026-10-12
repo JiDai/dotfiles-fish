@@ -71,13 +71,13 @@ function main
 			yarn
 
 		brew cleanup
-		ruby -e (curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)
+		/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh)"
 	end
 
 
 	print_title "Remove shell in /etc/shells"
 
-	sudo cat /etc/shells | grep -v $HOME/homebrew/bin/fish | sudo tee /etc/shells > /dev/null
+	sudo cat /etc/shells | grep -v /opt/homebrew/bin/fish | sudo tee /etc/shells > /dev/null
 
 
 	print_title "Cleaning"

@@ -5,14 +5,14 @@ set -o nounset
 set -o pipefail
 
 export PATH="${HOME}/opt/bin:${PATH}"
-export PATH="${HOME}/homebrew/sbin:${HOME}/homebrew/bin:${PATH}"
+export PATH="/opt/homebrew/sbin:/opt/homebrew/bin:${PATH}"
 
 prerequisites() {
 	if ! command -v brew >/dev/null 2>&1; then
-		if [[ ! -d "${HOME}/homebrew" ]]; then
-			mkdir "${HOME}/homebrew"
+		if [[ ! -d "/opt/homebrew" ]]; then
+			mkdir "/opt/homebrew"
 		fi
-		curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C "${HOME}/homebrew"
+		/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 	fi
 
 	brew update
@@ -49,6 +49,9 @@ prerequisites() {
 		twitchdev/twitch/twitch-cli \
 		watch \
 		yarn
+
+	brew install --cask warp
+	curl -fsSL https://claude.ai/install.sh | bash
 }
 
 main() {

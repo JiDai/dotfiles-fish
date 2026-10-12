@@ -1,8 +1,8 @@
 set -gx PATH /usr/local/bin $PATH
 
 # Brew
-if test -d $HOME/homebrew
-	set -gx PATH $HOME/homebrew/sbin $HOME/homebrew/bin $PATH
+if test -d /opt/homebrew
+	set -gx PATH /opt/homebrew/sbin /opt/homebrew/bin $PATH
 end
 
 # Custom binaries
