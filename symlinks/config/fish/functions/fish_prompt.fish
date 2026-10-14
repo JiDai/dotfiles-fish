@@ -71,9 +71,11 @@ function show_pwd -d "Show the current directory"
 end
 
 function show_docker -d "Docker context"
-	set -l context (docker context ls | grep '*' | awk '{print $1}')
-	if test -n $context
-		prompt_segment normal blue "🐳 $context"
+	if type -q docker
+		set -l context (docker context ls | grep '*' | awk '{print $1}')
+		if test -n $context
+			prompt_segment normal blue "🐳 $context"
+		end
 	end
 end
 
