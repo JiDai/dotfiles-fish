@@ -67,7 +67,7 @@ function main
 			twitchdev/twitch/twitch-cli \
 			watch \
 			# SF specific
-			minio-mc shellcheck jq libpq coreutils asdf bash
+			minio-mc shellcheck jq libpq coreutils bash
 
 		brew cleanup
 		/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh)"

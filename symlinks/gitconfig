@@ -109,5 +109,5 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 
-[includeIf "gitdir:/Users/jordid/Work/"]
-  path = .gitconfig-spacefill
+[includeIf "gitdir:/Users/jordidosne/Work/"]
+  path = .gitconfig-vizzia
