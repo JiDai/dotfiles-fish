@@ -30,10 +30,7 @@ end
 # Configure preview generation on FZF finder
 set fzf_preview_file_cmd __fzf_preview_file_content
 
-
-# Load direnv
-direnv hook fish | source
-
+versions
 load_em
 
 # completions
