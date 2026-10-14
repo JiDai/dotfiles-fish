@@ -17,3 +17,6 @@ set -gx PATH /Applications/Postgres.app/Contents/Versions/latest/bin $PATH
 
 set -gx N_PREFIX $HOME/.n
 set -gx PATH $N_PREFIX/bin $PATH
+
+# WebStorm cli
+set -gx PATH /Applications/WebStorm.app/Contents/MacOS $PATH
