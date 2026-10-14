@@ -1,0 +1,6 @@
+[user]
+	name = Jordi Dosne
+	email = jordi.dosne@vizzia.fr
+
+[commit]
+	gpgsign = false

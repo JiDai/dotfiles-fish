@@ -30,8 +30,8 @@ end
 # Configure preview generation on FZF finder
 set fzf_preview_file_cmd __fzf_preview_file_content
 
-versions
-load_em
+# TODO not working, load_em is not found
+# load_em
 
 # completions
 

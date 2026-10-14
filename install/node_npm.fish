@@ -3,15 +3,16 @@
 function main
 	echo "Install Node"
 	mkdir $HOME/.n
-	n install 16
+	n latest
 
 	echo "Install NPM global packages"
-	npm i -g npm-check
-	npm i -g yarn-check
-	npm i -g vercel
-	npm i -g lint-staged
-	npm i -g prettier
-	npm i -g eslint
+	npm install -g npm-check
+	npm install -g yarn-check
+	npm install -g vercel
+	npm install -g lint-staged
+	npm install -g prettier
+	npm install -g eslint
+	npm install -g fish-lsp
 end
 
 main
