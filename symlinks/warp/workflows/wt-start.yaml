@@ -1,0 +1,5 @@
+name: Démarrer une issue JIRA
+command: wt-start {{branch}}
+arguments:
+  - name: branch
+    description: "Nom de branche avec la clé JIRA, ex. feature/PROJ-123-fix-login"

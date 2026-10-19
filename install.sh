@@ -20,6 +20,7 @@ prerequisites() {
 	# Installed packages must be also declared in uninstall.sh
 	brew install \
 		bat \
+		caddy \
 		curl \
 		deno \
 		fd \

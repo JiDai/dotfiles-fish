@@ -42,6 +42,7 @@ function main
 	if command -v brew > /dev/null 2>&1
 		brew uninstall --ignore-dependencies \
 			bat \
+			caddy \
 			curl \
 			deno \
 			fd \
