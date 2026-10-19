@@ -48,26 +48,28 @@ function main
 			fish \
 			fswatch \
 			fzf \
-			glow \
 			git \
 			gh \
+			glow \
 			htop \
 			httpie \
 			jq \
 			n \
 			ncdu \
 			openssl \
+			p7zip \
 			pass \
 			pass-otp \
 			pgcli \
 			php \
+			php \
 			ripgrep \
+			timg \
 			tmux \
 			tree \
 			twitchdev/twitch/twitch-cli \
 			watch \
-			# SF specific
-			minio-mc shellcheck jq libpq coreutils bash
+			yarn
 
 		brew cleanup
 		/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh)"
