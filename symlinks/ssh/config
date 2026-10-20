@@ -1,0 +1,20 @@
+Host *
+    AddKeysToAgent yes
+    UseKeychain yes
+    ServerAliveInterval 300
+    ServerAliveCountMax 5
+    ForwardAgent yes
+
+Include ~/.ssh/config-pro
+
+Host github.com
+    User git
+    Hostname ssh.github.com
+    Port 443
+    IdentityFile ~/.ssh/id_ed25519
+
+Host gitlab.com
+    IdentityFile ~/.ssh/id_ed25519
+    Hostname altssh.gitlab.com
+    User git
+    PreferredAuthentications publickey

@@ -4,3 +4,6 @@
 
 [commit]
 	gpgsign = false
+
+[url "git@github.vizzia:"]
+    insteadOf = git@github.com:

@@ -16,3 +16,4 @@ cd dotfiles-fish
 - Clone passwords
 - Logiciel: Alfred, GPG Suite, Webstorm
 - SSH et PGP a importer
+- Config spécifiques SSH pour GitHub et Gitconfig

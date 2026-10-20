@@ -1,4 +1,6 @@
 save-exact=true
 strict-ssl=true
-always-auth=true
 init-author-name=Jordi Dosne
+
+@vizzia:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=$VIZZIA_GITHUB_TOKEN
